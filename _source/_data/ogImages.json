@@ -1,0 +1,38 @@
+[
+  {
+    "id": "default",
+    "title": "Portland Multifamily Investment"
+  },
+  {
+    "id": "about",
+    "title": "Our Mission"
+  },
+  {
+    "id": "strategy",
+    "title": "Investment Strategy"
+  },
+  {
+    "id": "portland",
+    "title": "Why Portland"
+  },
+  {
+    "id": "criteria",
+    "title": "Acquisition Criteria"
+  },
+  {
+    "id": "portfolio",
+    "title": "Current Portfolio"
+  },
+  {
+    "id": "management",
+    "title": "Property Management Philosophy"
+  },
+  {
+    "id": "faq",
+    "title": "Frequently Asked Questions"
+  },
+  {
+    "id": "contact",
+    "title": "Contact Us"
+  }
+]

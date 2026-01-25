@@ -7,19 +7,19 @@ import inlineCSS from './_source/_utilities/inlineCSS.js';
 import setVar from './_source/_utilities/setVar.js';
 import fullDate from './_source/_utilities/fullDate.js';
 import markdownify from './_source/_utilities/markdownify.js';
-import generateOGImage from './_source/_utilities/og-image.js';
-import generateAllOGImages from './_source/_utilities/generate-all-og-images.js';
+import generateFavicons from './_source/_utilities/generate-favicons.js';
 import { IdAttributePlugin } from '@11ty/eleventy';
 
 export default async function (eleventyConfig) {
-  // Generate all OG images at build start
+  // Generate favicons at build start
   eleventyConfig.on('eleventy.before', async () => {
     try {
-      await generateAllOGImages();
+      await generateFavicons();
     } catch (error) {
-      console.warn('Could not generate OG images:', error);
+      console.warn('Could not generate favicons:', error);
     }
   });
+
   /* --------------------------------------------------------------------------
   Plugins, bundles, shortcodes, filters
   -------------------------------------------------------------------------- */
@@ -31,10 +31,10 @@ export default async function (eleventyConfig) {
   eleventyConfig.addShortcode('image', image);
   eleventyConfig.addShortcode('heroImage', heroImage);
   eleventyConfig.addShortcode('bgImage', bgImage);
-  eleventyConfig.addAsyncShortcode('ogImage', generateOGImage);
   eleventyConfig.addPairedShortcode('setVar', setVar);
   eleventyConfig.addFilter('fullDate', fullDate);
   eleventyConfig.addFilter('markdownify', markdownify);
+  eleventyConfig.addFilter('url_encode', (str) => encodeURIComponent(str));
 
   /* --------------------------------------------------------------------------
   MarkdownIt settings
