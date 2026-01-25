@@ -538,43 +538,31 @@
    -------------------------------------------------------------------------- */
 .approach-grid {
 	display: grid;
-	grid-template-columns: 1fr;
-	gap: var(--space-md);
+	grid-template-columns: repeat(1, 1fr);
+	gap: var(--space-lg);
 	margin-top: var(--space-lg);
 	margin-bottom: var(--space-xl);
 }
 
-/* Tablet: 2 columns when there's enough space */
-@media (min-width: 600px) {
+/* Override any media query that sets 4 columns */
+@media (min-width: 768px) {
 	.approach-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-/* Desktop: 4 columns with min-width to prevent truncation */
-@media (min-width: 1024px) {
-	.approach-grid {
-		grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-		gap: clamp(var(--space-md), 3vw, var(--space-lg));
-	}
-}
-
-/* Large desktop: ensure 4 columns fit well */
-@media (min-width: 1440px) {
-	.approach-grid {
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(1, 1fr);
+		gap: var(--space-lg);
 	}
 }
 
 .approach-card {
+	display: flex;
+	flex-direction: column;
 	padding: var(--space-lg);
 	background: var(--color-bg-dark);
 	border-radius: var(--border-radius-md);
 	transition:
 		transform var(--transition-base),
 		box-shadow var(--transition-base);
-	min-width: 0; /* Prevent text truncation */
-	overflow-wrap: break-word;
+	min-width: 0;
+	height: 100%;
 }
 
 .approach-card:hover {
@@ -595,8 +583,10 @@
 	font-weight: var(--font-weight-xl);
 	color: var(--color-text);
 	margin-bottom: var(--space-sm);
-	overflow-wrap: break-word;
-	word-wrap: break-word;
+	overflow-wrap: normal;
+	word-break: normal;
+	hyphens: auto;
+	line-height: 1.2;
 }
 
 .approach-card p {
@@ -606,6 +596,7 @@
 	margin: 0;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+	flex-grow: 1;
 }
 
 /* -------------------------------------------------------------------------
@@ -617,7 +608,6 @@
 	gap: 0;
 	margin-top: var(--space-md); /* Tighter spacing above */
 	margin-bottom: var(--space-md); /* Tighter spacing below */
-	max-width: var(--line-length-lg); /* Match text line length */
 }
 
 .stat-item {
@@ -745,7 +735,6 @@
 
 .portland-prose {
 	margin-top: var(--space-md); /* Match stats-row bottom margin for even spacing */
-	max-width: var(--line-length-lg); /* Match intro paragraph line length */
 }
 
 .portland-prose p {
@@ -1077,7 +1066,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: var(--space-sm);
-	max-width: 42rem;
 	margin-top: var(--space-lg);
 	transition: opacity var(--transition-slow);
 }
