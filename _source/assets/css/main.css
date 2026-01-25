@@ -300,7 +300,6 @@
 	color: var(--color-text);
 	max-width: 18ch;
 	margin-bottom: var(--space-lg);
-	animation: fadeInUp 0.6s ease-out both;
 }
 
 .hero-subtitle {
@@ -310,7 +309,6 @@
 	max-width: 50ch;
 	line-height: var(--line-height-lg);
 	margin-bottom: var(--space-xl);
-	animation: fadeInUp 0.6s ease-out 0.15s both;
 }
 
 .hero-buttons {
@@ -320,11 +318,7 @@
 }
 
 .hero-section .button {
-	animation: fadeInUp 0.6s ease-out 0.3s both;
-}
-
-.hero-section .button:nth-child(2) {
-	animation-delay: 0.4s;
+	/* No animation - content appears immediately */
 }
 
 /* -------------------------------------------------------------------------
@@ -744,27 +738,9 @@
 	}
 }
 
-/* Stats animation - triggered by JS on scroll */
-@keyframes stat-pop {
-	from {
-		opacity: 0;
-		transform: translateY(1rem);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Stats - visible by default */
+/* Stats - no animations, content appears immediately */
 .stat-item {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-/* Animate when scrolled into view */
-.stat-item[data-animated="true"] {
-	animation: stat-pop 0.5s ease-out both;
+	/* No animation - content appears immediately */
 }
 
 .portland-prose {
@@ -1303,25 +1279,7 @@
 /* -------------------------------------------------------------------------
    Animations
    -------------------------------------------------------------------------- */
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(1.5rem);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Content sections - visible by default, animate on scroll */
+/* Content sections - no animations, content appears immediately */
 .content-section {
-	opacity: 1;
-	transform: translateY(0);
-	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Animate when scrolled into view */
-.content-section[data-animated="true"] {
-	animation: fadeInUp 0.5s ease-out both;
+	/* No animation - content appears immediately */
 }

@@ -54,7 +54,7 @@ body {
 	line-height: var(--line-height-fluid);
 }
 
-:where(animate-on-scroll, details-menu) {
+:where(details-menu) {
 	display: contents;
 }
 

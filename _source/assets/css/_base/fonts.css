@@ -3,5 +3,5 @@
 	src: url("/assets/fonts/DMSans-Variable.woff2") format("woff2");
 	font-weight: 300 800;
 	font-style: normal;
-	font-display: swap;
+	font-display: optional; /* Use optional for better LCP - shows fallback immediately if font not ready */
 }

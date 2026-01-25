@@ -21,6 +21,7 @@ collections_config:
       - "!docs/**"
     name: Pages
     icon: wysiwyg
+    output_url: "{{ site.baseUrl }}{{ item.url }}"
     _enabled_editors:
       - visual
       - content
