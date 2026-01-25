@@ -52,7 +52,6 @@ export default async function (eleventyConfig) {
   eleventyConfig.setServerPassthroughCopyBehavior('passthrough');
   eleventyConfig.addPassthroughCopy('_source/assets/fonts');
   eleventyConfig.addPassthroughCopy('_source/assets/images');
-  // OG images are generated directly in _site during build, no copy needed
 
   return {
     dir: {
