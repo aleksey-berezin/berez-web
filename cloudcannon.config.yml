@@ -21,7 +21,7 @@ collections_config:
       - "!docs/**"
     name: Pages
     icon: wysiwyg
-    url: /[relative_base_path]
+    url: /[filename]
     _enabled_editors:
       - visual
       - content
