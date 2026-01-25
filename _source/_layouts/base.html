@@ -66,15 +66,8 @@
     <link rel="apple-touch-icon" href="/assets/images/icons/favicon-196x196.png">
 
     <style>
-      {% getBundle "css" %}
+      {% inlineCSS %}
     </style>
-
-    <link rel="stylesheet" href="/assets/css/main.css" media="all">
-    {%- if stylesheet -%}
-    {%- for sheet in stylesheet -%}
-    <link rel="stylesheet" href="{{ sheet }}" media="all">
-    {%- endfor -%}
-    {%- endif -%}
 
     <!-- JSON-LD Structured Data -->
     {%- if page.url == '/' -%}

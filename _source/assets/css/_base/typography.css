@@ -81,7 +81,7 @@ li {
 }
 
 small {
-	font-size: var(--type-sm);
+	font-size: var(--font-size-sm);
 }
 
 mark {
@@ -138,7 +138,7 @@ code {
 	padding-inline-start: var(--space-sm);
 	font-size: var(--font-size-md);
 	border-inline-start: var(--border-width-md) solid
-		oklch(from var(--primary) var(--300));
+		oklch(from var(--primary) 70% c h);
 	text-box: trim-both cap alphabetic;
 
 	& > p {

@@ -13,32 +13,6 @@ paths:
 
 # Collections - editable content groups
 collections_config:
-  docs:
-    path: docs/instructions
-    output: false
-    name: Documentation
-    icon: book
-    description: Documentation pages
-    schemas:
-      default:
-        path: .cloudcannon/schemas/doc.md
-    _enabled_editors:
-      - content
-      - data
-    add_options:
-      - name: Add Documentation Page
-        schema: default
-
-  snippets:
-    path: docs/snippets
-    output: false
-    name: Code Snippets
-    icon: code
-    description: Code snippet examples
-    _enabled_editors:
-      - content
-      - data
-
   pages:
     path: ""
     glob:
@@ -58,10 +32,6 @@ data_config:
     path: _data/site.json
     name: Site Settings
     icon: settings
-
-  docs:
-    path: docs/docs.json
-    name: Documentation Config
 
 # File handling
 file_config:

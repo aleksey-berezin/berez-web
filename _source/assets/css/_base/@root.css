@@ -5,23 +5,9 @@
 	color-scheme: light;
 	interpolate-size: allow-keywords;
 
-	/* tints & shades */
-	--0: 100% 0 h;
-	--50: 97% calc(c / 16) h;
-	--100: 94% calc(c / 4) h;
-	--200: 88% c h;
-	--300: 70% c h;
-	--400: 60% c h;
-	--500: 50% c h;
-	--600: 40% c h;
-	--700: 30% c h;
-	--800: 22% calc(c / 1.5) h;
-	--900: 18% calc(c / 2) h;
-
 	/* source colors - Berez palette: white/gray/dark red/black */
-	--neutral: oklch(55% 0.01 0deg);
 	--primary: oklch(35% 0.15 15deg); /* dark red */
-	--secondary: oklch(25% 0.01 0deg); /* near black */
+	--primary-300: 70% c h; /* used in blockquote */
 
 	/* preset colors */
 	--color-text: #1a1a1a;
@@ -46,8 +32,6 @@
 	--space-lg: calc(var(--space-md) * var(--space-scale));
 	--space-xl: calc(var(--space-lg) * var(--space-scale));
 	--space-xxl: calc(var(--space-xl) * var(--space-scale));
-	--space-xxxl: calc(var(--space-xxl) * var(--space-scale));
-	--space-flex: clamp(8rem, 20vw, 16rem);
 
 	/* ---------------------------------------------------------------------------
   typography
@@ -69,33 +53,27 @@
 	--font-weight-xxl: 800;
 	--font-weight: var(--font-weight-sm);
 
-	/* font size */
-	--font-size-base: max(1.0625em, min(calc(0.675em + 0.5vw), 1.75em));
-	--font-size-scale-sm: 1.2;
-	--font-size-scale-lg: 1.3;
-	--font-size-xxxs: calc(var(--font-size-xxs) / var(--font-size-scale-sm));
-	--font-size-xxs: calc(var(--font-size-xs) / var(--font-size-scale-sm));
-	--font-size-xs: calc(var(--font-size-sm) / var(--font-size-scale-sm));
-	--font-size-sm: calc(var(--font-size-md) / var(--font-size-scale-sm));
-	--font-size-md: 1em;
-	--font-size-lg: calc(var(--font-size-md) * var(--font-size-scale-lg));
-	--font-size-xl: calc(var(--font-size-lg) * var(--font-size-scale-lg));
-	--font-size-xxl: calc(var(--font-size-xl) * var(--font-size-scale-lg));
-	--font-size-xxxl: calc(var(--font-size-xxl) * var(--font-size-scale-lg));
-	--font-size-xxxxl: calc(var(--font-size-xxxl) * var(--font-size-scale-lg));
-	--font-size-poster: clamp(3em, 7vw, 5.5em);
+	/* font size - Fluid typography (Utopia-style) */
+	/* Base scales from 320px to 1920px viewport */
+	--font-size-base: clamp(1.0625rem, 0.675rem + 0.5vw, 1.75rem);
+	/* Each size uses clamp() for proper fluid scaling */
+	--font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+	--font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+	--font-size-md: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+	--font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.375rem);
+	--font-size-xl: clamp(1.375rem, 1.2rem + 0.875vw, 1.75rem);
+	--font-size-xxl: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem);
+	--font-size-xxxxl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+	--font-size-poster: clamp(3rem, 2rem + 5vw, 5.5rem);
 
-	/* line length */
-	--line-length-xs: 24ch;
-	--line-length-sm: 48ch;
-	--line-length-md: 64ch;
-	--line-length-lg: 72ch;
-	--line-length-xl: 80ch;
+	/* line length - Fluid scaling for optimal readability */
+	--line-length-md: clamp(48ch, 50ch + 2vw, 64ch);
+	--line-length-lg: clamp(56ch, 60ch + 2vw, 72ch);
+	--line-length-xl: clamp(64ch, 70ch + 2vw, 80ch);
 
 	/* line height */
 	--line-height-base: 1.1;
 	--line-height-scale: 1.25;
-	--line-height-xs: calc(var(--line-height-sm) / var(--line-height-scale));
 	--line-height-sm: var(--line-height-base);
 	--line-height-md: calc(var(--line-height-sm) * var(--line-height-scale));
 	--line-height-lg: calc(var(--line-height-md) * var(--line-height-scale));
@@ -105,7 +83,6 @@
 	--letter-spacing-sm: -0.02em;
 	--letter-spacing-md: 0;
 	--letter-spacing-lg: 0.08em;
-	--letter-spacing-xl: 0.2em;
 
 	/* ---------------------------------------------------------------------------
   borders
@@ -116,38 +93,44 @@
 	--border-radius-sm: 0.2rem;
 	--border-radius-md: 0.4rem;
 	--border-radius-lg: 0.8rem;
-	--border-radius-xl: 1.6rem;
 
 	/* border width */
 	--border-width-sm: 0.0625rem;
 	--border-width-md: 0.1rem;
-	--border-width-lg: 0.25rem;
 
 	/* ---------------------------------------------------------------------------
   z-index
   --------------------------------------------------------------------------- */
-	--z-0: 0;
 	--z-1: 1;
 	--z-2: 2;
-	--z-3: 3;
-	--z-4: 4;
 	--z-5: 5;
 
 	/* ---------------------------------------------------------------------------
   shadows
   --------------------------------------------------------------------------- */
-	--shadow-sm: 0 1px 2px -1px oklch(from var(--color-shadow) l c h / 10%);
 	--shadow-md:
 		0 -1px 3px 0 oklch(from var(--color-shadow) l c h / 2%),
 		0 1px 2px -5px oklch(from var(--color-shadow) l c h / 2%),
 		0 2px 5px -5px oklch(from var(--color-shadow) l c h / 4%),
 		0 4px 12px -5px oklch(from var(--color-shadow) l c h / 5%),
 		0 12px 15px -5px oklch(from var(--color-shadow) l c h / 7%);
-	--shadow-lg:
-		0 5px 5px -2px oklch(from var(--color-shadow) l c h / 6%),
-		0 10px 10px -2px oklch(from var(--color-shadow) l c h / 7%),
-		0 20px 20px -2px oklch(from var(--color-shadow) l c h / 8%),
-		0 40px 40px -2px oklch(from var(--color-shadow) l c h / 9%);
+
+	/* ---------------------------------------------------------------------------
+  animation timing
+  --------------------------------------------------------------------------- */
+	--transition-fast: 0.1s ease;
+	--transition-base: 0.2s ease;
+	--transition-slow: 0.3s ease;
+	--transition-slower: 0.4s ease;
+	--transition-slowest: 0.5s ease;
+	--transition-long: 0.6s ease;
+	--animation-delay-xs: 0.05s;
+	--animation-delay-sm: 0.1s;
+	--animation-delay-md: 0.15s;
+	--animation-delay-lg: 0.2s;
+	--animation-delay-xl: 0.25s;
+	--animation-delay-xxl: 0.3s;
+	--animation-delay-xxxl: 0.4s;
 
 	/* ---------------------------------------------------------------------------
   shapes

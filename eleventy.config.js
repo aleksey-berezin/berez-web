@@ -3,6 +3,7 @@ import esbuild from './_source/_utilities/esbuild.js';
 import lightingcss from './_source/_utilities/lightningcss.js';
 import image, { heroImage, bgImage } from './_source/_utilities/image.js';
 import style from './_source/_utilities/style.js';
+import inlineCSS from './_source/_utilities/inlineCSS.js';
 import setVar from './_source/_utilities/setVar.js';
 import fullDate from './_source/_utilities/fullDate.js';
 import markdownify from './_source/_utilities/markdownify.js';
@@ -16,6 +17,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPlugin(lightingcss);
   eleventyConfig.addPlugin(IdAttributePlugin);
   eleventyConfig.addBundle('css', { transforms: [style] });
+  eleventyConfig.addAsyncShortcode('inlineCSS', inlineCSS);
   eleventyConfig.addShortcode('image', image);
   eleventyConfig.addShortcode('heroImage', heroImage);
   eleventyConfig.addShortcode('bgImage', bgImage);

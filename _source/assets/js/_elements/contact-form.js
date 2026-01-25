@@ -27,6 +27,7 @@ class ContactForm {
 		this.setLoadingState();
 
 		try {
+			// FormData automatically includes all form fields, including the hidden inbox_key
 			const response = await fetch(this.form.action || window.location.href, {
 				method: 'POST',
 				body: new FormData(this.form),
