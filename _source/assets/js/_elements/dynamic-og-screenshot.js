@@ -8,11 +8,17 @@
 
 	/**
 	 * Update OG tags with screenshot URL including hash
+	 * The screenshot service uses Puppeteer which should handle hash fragments
+	 * Using wait:2 to ensure page loads and hash navigation completes before screenshot
 	 */
 	function updateOGTags(hash = '') {
 		const baseUrl = 'https://www.berez.in';
 		const url = hash ? `${baseUrl}#${hash}` : baseUrl;
-		const screenshotUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/`;
+		
+		// Include hash in screenshot URL - Puppeteer should handle it
+		// The hash fragment (#) gets encoded as %23
+		// Using wait:2 to wait for network connections to settle (ensures hash navigation completes)
+		const screenshotUrl = `https://v1.screenshot.11ty.dev/${encodeURIComponent(url)}/opengraph/_wait:2/`;
 		
 		// Update og:image
 		let ogImage = document.querySelector('meta[property="og:image"]');
