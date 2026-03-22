@@ -320,6 +320,9 @@
   <body {% if class %} class="{{ class }}"{% endif %}>
     <a class="skip-link" href="#hero">Skip to content</a>
     {{ content }}
+    <script>
+      (function(){var h=document.querySelector('.site-header');if(h){document.documentElement.style.setProperty('--header-height',Math.ceil(h.getBoundingClientRect().height)+'px')}})();
+    </script>
   </body>
 
 </html>

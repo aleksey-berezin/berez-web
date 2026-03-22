@@ -73,7 +73,7 @@
    Header
    -------------------------------------------------------------------------- */
 :root {
-	--header-height: calc(var(--font-size-lg) * var(--line-height-fluid, 1.5) + var(--space-md) * 2 + 1px);
+	--header-height: 72px;
 	--header-offset: calc(var(--header-height) + var(--space-xs));
 	--side-nav-scroll-bump: var(--space-sm);
 }
