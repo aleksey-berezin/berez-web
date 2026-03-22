@@ -73,10 +73,9 @@
    Header
    -------------------------------------------------------------------------- */
 :root {
-	/* Fallbacks; will be updated at runtime by JS for pixel-perfect sticky offsets */
-	--header-height: 72px;
+	--header-height: calc(var(--font-size-lg) * var(--line-height-fluid, 1.5) + var(--space-md) * 2 + 1px);
 	--header-offset: calc(var(--header-height) + var(--space-xs));
-	--side-nav-scroll-bump: var(--space-sm); /* extra offset once side-nav-scroll marks nav as .scrolled */
+	--side-nav-scroll-bump: var(--space-sm);
 }
 
 .site-header {
