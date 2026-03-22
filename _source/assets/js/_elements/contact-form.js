@@ -74,12 +74,13 @@ class ContactForm {
 
 			// Replace form content
 			this.form.innerHTML = `
-				<div class="form-success">
+				<div class="form-success" tabindex="-1">
 					<h3>Thank you!</h3>
 					<p>We'll be in touch soon.</p>
 				</div>
 			`;
 			this.form.classList.remove('is-submitting');
+			this.form.querySelector('.form-success').focus();
 		}, 300);
 	}
 

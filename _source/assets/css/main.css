@@ -27,6 +27,39 @@
 }
 
 /* -------------------------------------------------------------------------
+   Skip Link
+   -------------------------------------------------------------------------- */
+.skip-link {
+	position: absolute;
+	top: -100%;
+	left: var(--space-md);
+	z-index: var(--z-5, 50);
+	padding: var(--space-xs) var(--space-sm);
+	background: var(--color-bg);
+	color: var(--color-accent);
+	border: 2px solid var(--color-accent);
+	border-radius: 4px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.skip-link:focus {
+	top: var(--space-sm);
+}
+
+/* -------------------------------------------------------------------------
+   Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* -------------------------------------------------------------------------
    Layout
    -------------------------------------------------------------------------- */
 .container {
@@ -251,7 +284,13 @@
 		transition-delay: var(--animation-delay-xxl);
 	}
 	.burger-menu[status='open'] .burger-menu__link:nth-child(6) {
-		transition-delay: 0.35s; /* Specific timing for 6th item - between xl and next increment */
+		transition-delay: 0.35s;
+	}
+	.burger-menu[status='open'] .burger-menu__link:nth-child(7) {
+		transition-delay: var(--animation-delay-xxxl);
+	}
+	.burger-menu[status='open'] .burger-menu__link:nth-child(8) {
+		transition-delay: 0.45s;
 	}
 
 	/* Close icon animation */

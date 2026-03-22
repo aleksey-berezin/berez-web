@@ -33,6 +33,7 @@ class CountUp {
 	animate(element) {
 		const target = parseFloat(element.dataset.count);
 		const suffix = element.dataset.suffix || '';
+		const prefix = element.dataset.prefix || '';
 		const duration = 1500;
 		const start = performance.now();
 
@@ -42,15 +43,15 @@ class CountUp {
 			const current = target * eased;
 
 			if (target % 1 === 0) {
-				element.textContent = Math.floor(current).toLocaleString() + suffix;
+				element.textContent = prefix + Math.floor(current).toLocaleString() + suffix;
 			} else {
-				element.textContent = current.toFixed(1) + suffix;
+				element.textContent = prefix + current.toFixed(1) + suffix;
 			}
 
 			if (progress < 1) {
 				requestAnimationFrame(step);
 			} else {
-				element.textContent = target.toLocaleString() + suffix;
+				element.textContent = prefix + target.toLocaleString() + suffix;
 			}
 		};
 
