@@ -1,9 +1,0 @@
-{
-  "routes": [
-    {
-      "from": "/wp-content/*",
-      "to": "/",
-      "status": 301
-    }
-  ]
-}
