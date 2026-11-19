@@ -57,7 +57,7 @@ eleventy.config.js      20 lines: image plugin and the public/ copy
 
 - **Images.** Write a plain `<img src="/photos/name.jpg" alt="…" sizes="…">`. At build time the [image plugin](https://www.11ty.dev/docs/plugins/image/) turns it into a `<picture>` with AVIF, WebP and JPEG versions at four widths.
 - **Navigation.** One `<nav popover>` serves both layouts. On phones it is a native browser popover opened by the header button; from 768px it is a sticky list beside the content. No JavaScript opens or closes it.
-- **JavaScript.** `_includes/site.js` is about seventy lines, inlined into the page so it costs no extra request: scroll-reveal, the count-up on the four market statistics, and closing the phone menu when a link is tapped. The page is complete without it.
+- **JavaScript.** `_includes/site.js` is about seventy lines, inlined into the page so it costs no extra request: scroll-reveal, the count-up on the four market statistics, the phone contact bar, closing the phone menu when a link is tapped, and marking the current section in the navigation. The page is complete without it.
 - **Motion.** All animation sits in one block at the end of `styles.css` and is skipped for visitors who have reduced motion turned on.
 - **Social preview.** `public/og-image.png` is rendered from `og-image.svg` beside it. After editing the SVG, re-render it:
 

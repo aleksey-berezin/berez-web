@@ -109,6 +109,18 @@ img {
 
 a {
 	color: var(--red);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 0.2em;
+}
+
+::selection {
+	background: rgb(139 58 58 / 18%);
+}
+
+/* On the red panel and the red phone menu, a red tint would not show */
+.contact ::selection,
+.menu:popover-open ::selection {
+	background: rgb(255 255 255 / 30%);
 }
 
 strong {
@@ -305,6 +317,13 @@ sup {
 	font-weight: 500;
 }
 
+.menu:popover-open a[aria-current] {
+	font-weight: 700;
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 0.3em;
+}
+
 .menu:popover-open .menu-close {
 	display: block;
 	position: absolute;
@@ -351,7 +370,8 @@ html:has(.menu:popover-open) {
 			border-color 0.2s;
 	}
 
-	.menu a:hover {
+	.menu a:hover,
+	.menu a[aria-current] {
 		border-left-color: var(--red);
 		color: var(--red);
 	}

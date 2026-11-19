@@ -51,7 +51,7 @@
 
     <header class="site-header">
       <div class="wrap">
-        <a class="brand" href="/">{{ site.name }}</a>
+        <a class="brand" href="{% if page.url == "/" %}#top{% else %}/{% endif %}">{{ site.name }}</a>
         {%- if page.url == "/" %}
         <button class="menu-open" popovertarget="menu" aria-label="Open menu"></button>
         {%- endif %}

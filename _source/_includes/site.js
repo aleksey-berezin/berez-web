@@ -1,5 +1,5 @@
 // Berez Investment Group
-// Four small behaviours. The page works without any of them.
+// Five small behaviours. The page works without any of them.
 
 document.documentElement.classList.add('js');
 
@@ -70,4 +70,26 @@ if (bar) {
 	for (const element of document.querySelectorAll('.hero, #contact')) {
 		watcher.observe(element);
 	}
+}
+
+// 5. Navigation: mark the link for the section the visitor is reading.
+//    A section counts as current while it crosses a line a third of the
+//    way down the screen, so exactly one link is marked at a time, and
+//    none while the hero is on screen.
+const links = new Map(
+	[...document.querySelectorAll('.menu a')].map((link) => [link.hash.slice(1), link]),
+);
+const reading = new IntersectionObserver(
+	(entries) => {
+		for (const { target, isIntersecting } of entries) {
+			const link = links.get(target.id);
+			if (isIntersecting) link.setAttribute('aria-current', 'true');
+			else link.removeAttribute('aria-current');
+		}
+	},
+	{ rootMargin: '-33% 0px -66% 0px' },
+);
+for (const id of links.keys()) {
+	const section = document.getElementById(id);
+	if (section) reading.observe(section);
 }
