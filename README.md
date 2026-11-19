@@ -81,7 +81,7 @@ All contact goes through `mailto:hello@berez.in`, a shared Microsoft 365 mailbox
 
 ## History
 
-The site was moved from CloudCannon to Cloudflare Pages in April 2026, and rebuilt from a starter template into the current hand-written codebase in November 2026. Notes from before the rebuild are in `docs/` and describe the old structure.
+The site was moved from CloudCannon to Cloudflare Pages in April 2026, and rebuilt from a starter template into the current hand-written codebase in November 2026. The DNS records as they stood before the move are kept in [`docs/dns-records-2026-01-12.md`](docs/dns-records-2026-01-12.md).
 
 ## License
 
