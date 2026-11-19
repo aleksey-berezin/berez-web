@@ -26,6 +26,7 @@ _source/
   _includes/
     layout.html         The <head>, header and footer shared by both pages
     styles.css          All the CSS, inlined into the page head
+    site.js             All the JavaScript, inlined the same way
   _data/
     site.json           Name, URL, email, navigation, "last updated" date
     properties.json     The portfolio
@@ -33,7 +34,7 @@ _source/
     schema.js           Structured data for search engines, built from the files above
   photos/               Property photos (resized automatically at build time)
   public/               Copied to the site root untouched:
-                        site.js, fonts, favicons, og-image, partner logos,
+                        fonts, favicons, og-image, partner logos,
                         robots.txt, _redirects, _headers (caching and security)
 eleventy.config.js      20 lines: image plugin and the public/ copy
 ```
@@ -56,7 +57,7 @@ eleventy.config.js      20 lines: image plugin and the public/ copy
 
 - **Images.** Write a plain `<img src="/photos/name.jpg" alt="…" sizes="…">`. At build time the [image plugin](https://www.11ty.dev/docs/plugins/image/) turns it into a `<picture>` with AVIF, WebP and JPEG versions at four widths.
 - **Navigation.** One `<nav popover>` serves both layouts. On phones it is a native browser popover opened by the header button; from 768px it is a sticky list beside the content. No JavaScript opens or closes it.
-- **JavaScript.** `public/site.js` is about fifty lines: scroll-reveal, the count-up on the four market statistics, and closing the phone menu when a link is tapped. The page is complete without it.
+- **JavaScript.** `_includes/site.js` is about seventy lines, inlined into the page so it costs no extra request: scroll-reveal, the count-up on the four market statistics, and closing the phone menu when a link is tapped. The page is complete without it.
 - **Motion.** All animation sits in one block at the end of `styles.css` and is skipped for visitors who have reduced motion turned on.
 - **Social preview.** `public/og-image.png` is rendered from `og-image.svg` beside it. After editing the SVG, re-render it:
 

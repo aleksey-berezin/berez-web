@@ -37,7 +37,9 @@
     <style>
 {% include "styles.css" %}
     </style>
-    <script src="/site.js" type="module"></script>
+    <script type="module">
+{% include "site.js" %}
+    </script>
 
     {%- if page.url == "/" %}
     <script type="application/ld+json">{{ schema | json }}</script>
