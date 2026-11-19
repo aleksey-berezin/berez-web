@@ -1,24 +1,13 @@
 ---
-eleventyExcludeFromCollections: true
 permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-{% for item in collections.all %}{% if item.url and item.url != false and item.data.noindex != true %}{% unless item.url contains ".css" or item.url contains ".js" or item.url contains "_utilities" or item.url contains "assets/" %}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for page in collections.all %}{% unless page.data.noindex %}
   <url>
-    <loc>{{ site.baseUrl }}{{ item.url }}</loc>
-    {%- if item.data.modified -%}
-    <lastmod>{{ item.data.modified | date: "%Y-%m-%d" }}</lastmod>
-    {%- else -%}
-    <lastmod>{{ item.date | date: "%Y-%m-%d" }}</lastmod>
-    {%- endif -%}
-    {%- if item.url == "/" -%}
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-    {%- else -%}
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    {%- endif -%}
+    <loc>{{ site.url }}{{ page.url }}</loc>
+    <lastmod>{{ site.updated }}</lastmod>
   </url>
-{% endunless %}{% endif %}{% endfor %}
+{%- endunless %}{% endfor %}
 </urlset>

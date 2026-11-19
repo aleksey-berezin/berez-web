@@ -1,9 +1,17 @@
 {
-	"title": "Berez Investment Group",
-	"description": "Boutique investment company focused on multifamily acquisitions in the Pacific Northwest. We acquire, manage, and reposition quality apartment communities in the Portland Metro area.",
-	"baseUrl": "https://www.berez.in",
-	"locale": "en_US",
-	"language": "en",
+	"name": "Berez Investment Group",
+	"url": "https://www.berez.in",
 	"email": "hello@berez.in",
-	"author": "Berez Investment Group"
+	"description": "Boutique investment company focused on multifamily acquisitions in the Pacific Northwest. We acquire, manage, and reposition quality apartment communities in the Portland Metro area.",
+	"updated": "2026-11-19",
+	"nav": [
+		{ "id": "about", "label": "About" },
+		{ "id": "strategy", "label": "Strategy" },
+		{ "id": "portland", "label": "Why Portland" },
+		{ "id": "criteria", "label": "Acquisition Criteria" },
+		{ "id": "portfolio", "label": "Portfolio" },
+		{ "id": "management", "label": "Management" },
+		{ "id": "faq", "label": "FAQ" },
+		{ "id": "contact", "label": "Contact" }
+	]
 }

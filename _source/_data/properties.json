@@ -1,0 +1,34 @@
+[
+	{
+		"name": "Glisan Townhomes",
+		"units": 10,
+		"facts": "Townhomes · Built 2008",
+		"url": "https://www.glisantownhomes.com/",
+		"photo": "glisan-townhomes.jpg",
+		"alt": "Glisan Townhomes exterior"
+	},
+	{
+		"name": "Lincoln Court Townhomes",
+		"units": 16,
+		"facts": "Townhomes · Built 1972, renovated",
+		"url": "https://www.lincolntownhomes.com/",
+		"photo": "lincoln-court-townhomes.jpg",
+		"alt": "Lincoln Court Townhomes exterior"
+	},
+	{
+		"name": "Roberts Court Townhomes",
+		"units": 20,
+		"facts": "Townhomes · Built 2006",
+		"url": "https://www.robertstownhomes.com/",
+		"photo": "roberts-court-townhomes.webp",
+		"alt": "Roberts Court Townhomes street view"
+	},
+	{
+		"name": "459 Rock Apartments",
+		"units": 44,
+		"facts": "Mid-rise, mixed use · Built 2022",
+		"url": "https://www.459rock.com/",
+		"photo": "459-rock-apartments.jpg",
+		"alt": "459 Rock Apartments building exterior"
+	}
+]

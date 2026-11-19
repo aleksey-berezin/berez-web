@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {%- assign page_title = title | default: site.name -%}
+    {%- assign page_description = description | default: site.description -%}
+    {%- assign page_url = site.url | append: page.url -%}
+    {%- assign share_image = site.url | append: "/og-image.png" %}
+
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+    <link rel="canonical" href="{{ page_url }}">
+    {%- if noindex %}
+    <meta name="robots" content="noindex, nofollow">
+    {%- endif %}
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ page_title }}">
+    <meta property="og:description" content="{{ page_description }}">
+    <meta property="og:url" content="{{ page_url }}">
+    <meta property="og:image" content="{{ share_image }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#8b3a3a">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link rel="preload" href="/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+{% include "styles.css" %}
+    </style>
+    <script src="/site.js" type="module"></script>
+
+    {%- if page.url == "/" %}
+    {%- for item in schema %}
+    <script type="application/ld+json">{{ item | json }}</script>
+    {%- endfor %}
+    {%- endif %}
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">{{ site.name }}</a>
+        {%- if page.url == "/" %}
+        <button class="menu-open" popovertarget="menu" aria-label="Open menu"></button>
+        {%- endif %}
+      </div>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.name }}. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

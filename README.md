@@ -1,112 +1,87 @@
 # berez-web
 
-Marketing website for **Berez Investment Group** — a boutique multifamily investment company in the Portland Metro area.
+The website for **Berez Investment Group**, a boutique multifamily investment company in the Portland Metro area.
 
-Production: **https://www.berez.in**
+Live at **https://www.berez.in**
 
-## Stack
+It is one page, built with [Eleventy](https://www.11ty.dev) and hosted on [Cloudflare Pages](https://pages.cloudflare.com). There are two dependencies: Eleventy itself and its image plugin.
 
-- **Static site generator**: [Eleventy](https://www.11ty.dev) 3.1 with the Liquid templating engine
-- **Hosting**: [Cloudflare Pages](https://pages.cloudflare.com) (Free plan, auto-deploys from `main`)
-- **DNS**: Cloudflare (registrar is Namecheap, nameservers delegated to `*.ns.cloudflare.com`)
-- **Email**: Microsoft 365 (shared mailbox at `hello@berez.in`)
-- **Analytics**: Cloudflare Web Analytics (zone-level) + Google Analytics 4
-- **Tooling**: Biome (format + lint), esbuild (JS bundling), lightningcss (CSS minification), sharp + eleventy-img (responsive images)
-
-## Local development
+## Working on it
 
 ```bash
 npm install
-npm start      # dev server on http://localhost:8080 with live reload
-npm run build  # production build into _site/
+npm start      # http://localhost:8080, reloads as you edit
+npm run build  # writes the finished site to _site/
 ```
 
-Node version is pinned to **24** via `.nvmrc`.
+Node is pinned to version 24 in `.nvmrc`.
+
+## Where things are
+
+```
+_source/
+  index.html            The page: every section, top to bottom
+  404.html              Error page
+  sitemap.liquid        Generates sitemap.xml
+  _includes/
+    layout.html         The <head>, header and footer shared by both pages
+    styles.css          All the CSS, inlined into the page head
+  _data/
+    site.json           Name, URL, email, navigation, "last updated" date
+    properties.json     The portfolio
+    faq.json            Questions and answers
+    schema.js           Structured data for search engines, built from the files above
+  photos/               Property photos (resized automatically at build time)
+  public/               Copied to the site root untouched:
+                        site.js, fonts, favicons, og-image, robots.txt, _redirects
+eleventy.config.js      20 lines: image plugin and the public/ copy
+```
+
+## Common changes
+
+**Edit the text.** Open `_source/index.html`. The sections appear in page order, each in a `<section id="…">`.
+
+**Add or change a property.** Edit `_source/_data/properties.json` and put the photo in `_source/photos/`.
+
+**Add or change an FAQ.** Edit `_source/_data/faq.json`. `answer` is the bold one-line answer that is always visible; `detail` is the list of paragraphs behind the plus sign. The search-engine version updates itself.
+
+**Refresh the market data.** Update the figures and sources in the "Why Portland" section of `index.html`, then change `updated` in `_source/_data/site.json`. That date drives the "last updated" line, the sitemap and the structured data.
+
+**Change the navigation.** Edit `nav` in `site.json`. Each `id` must match a section's `id` in `index.html`.
+
+**Change colours, type or spacing.** They are variables at the top of `_source/_includes/styles.css`.
+
+## How it works
+
+- **Images.** Write a plain `<img src="/photos/name.jpg" alt="…" sizes="…">`. At build time the [image plugin](https://www.11ty.dev/docs/plugins/image/) turns it into a `<picture>` with AVIF, WebP and JPEG versions at four widths.
+- **Navigation.** One `<nav popover>` serves both layouts. On phones it is a native browser popover opened by the header button; from 768px it is a sticky list beside the content. No JavaScript opens or closes it.
+- **JavaScript.** `public/site.js` is about fifty lines: scroll-reveal, the count-up on the four market statistics, and closing the phone menu when a link is tapped. The page is complete without it.
+- **Motion.** All animation sits in one block at the end of `styles.css` and is skipped for visitors who have reduced motion turned on.
+- **Social preview.** `public/og-image.png` is rendered from `og-image.svg` beside it. After editing the SVG, re-render it:
+
+  ```bash
+  node -e "import('sharp').then(({default:s})=>s('_source/public/og-image.svg').png().toFile('_source/public/og-image.png'))"
+  ```
 
 ## Deployment
 
-Every push to `main` triggers an automatic Cloudflare Pages build. Preview deployments are generated for any branch push.
-
-- **Production URL**: https://www.berez.in
-- **Preview URLs**: `https://{commit-hash}.berez-web.pages.dev`
-
-Pages project build settings:
+Every push to `main` builds and deploys on Cloudflare Pages. Other branches get preview URLs at `https://{commit-hash}.berez-web.pages.dev`.
 
 | Setting | Value |
 |---|---|
-| Framework preset | Eleventy |
 | Build command | `npm run build` |
 | Build output directory | `_site` |
-| Root directory | `/` (repo root) |
-| `NODE_VERSION` env var | `24` |
+| `NODE_VERSION` | `24` |
 
-## Repository layout
+DNS is on Cloudflare. The redirect from `berez.in` to `www.berez.in` is a Cloudflare Redirect Rule, not part of this repository. `public/_redirects` only deflects WordPress and scanner probes.
 
-```
-_source/              Site source
-  _data/              Eleventy global data (site.json)
-  _layouts/           Page layouts
-  _utilities/         Build-time helpers (CSS inlining, JS bundling, favicon generation)
-  assets/
-    css/              main.css + component/utility partials (inlined into the page head)
-    fonts/            Web fonts (passthrough copied)
-    images/           Source images (photos are processed by eleventy-img; icons and logo are copied as-is)
-    js/               app.js + _elements/ (progressive-enhancement modules)
-  index.html          Home page
-  404.html            Error page
-  robots.liquid       Generates robots.txt
-  sitemap.liquid      Generates sitemap.xml
-  _redirects          Cloudflare Pages redirect rules (copied to _site/_redirects at build)
-_site/                Build output (gitignored)
-docs/                 Internal project notes (excluded from build via .eleventyignore)
-eleventy.config.js    Eleventy configuration
-package.json
-.nvmrc                Node version pin (24)
-```
+## Contact
 
-## Images
+All contact goes through `mailto:hello@berez.in`, a shared Microsoft 365 mailbox. There is deliberately no contact form: the old one received almost nothing but spam.
 
-Write a plain `<img>` with an absolute path to the source file and a `sizes` attribute:
+## History
 
-```html
-<img src="/assets/images/photo.jpg" alt="Description" sizes="(min-width: 768px) 460px, 100vw">
-```
-
-At build time the [eleventy-img HTML transform](https://www.11ty.dev/docs/plugins/image/) turns it into a `<picture>` with AVIF, WebP and JPEG sources at 400, 800, 1200 and 1600 px, written to `_site/img/` with content-hashed filenames. Images are lazy-loaded by default. Add `eleventy:ignore` to an `<img>` to leave it untouched.
-
-## Social preview image
-
-`_source/assets/images/og-image.png` (1200×630) is the image shown when the site is shared. It is a static file rendered from `og-image.svg` in the same folder; re-render it after editing the SVG:
-
-```bash
-node -e "import('sharp').then(({default:s})=>s('_source/assets/images/og-image.svg').png().toFile('_source/assets/images/og-image.png'))"
-```
-
-## Redirects
-
-`_source/_redirects` defines native Cloudflare Pages redirect rules, currently used to deflect WordPress/scanner probes:
-
-```
-/wp-login.php / 301
-/xmlrpc.php / 301
-/.env / 301
-/wp-content/* / 301
-/wp-includes/* / 301
-/wp-admin/* / 301
-/.git/* / 301
-```
-
-Apex-to-www redirects (`berez.in` → `www.berez.in`) are handled by a Cloudflare **Redirect Rule** at the edge, not by this file.
-
-## Contact form
-
-The site routes all contact via a `mailto:hello@berez.in` button. There is no server-side form handler — `hello@berez.in` is a shared mailbox on Microsoft 365 with its own spam filtering. A form-based contact handler was intentionally removed during the Cloudflare migration because ~100% of submissions were spam.
-
-## Migration notes
-
-This repository was previously hosted on [CloudCannon](https://cloudcannon.com) as a CMS-managed static site. In April 2026 it was migrated to Cloudflare Pages to consolidate hosting, DNS, and analytics under a single vendor and to unlock Cloudflare-native features (Access, Web Analytics, R2, D1, Workers).
-
-The CloudCannon-era files (`cloudcannon.config.yml`, `.cloudcannon/`) have been removed. Historical DNS records from before the switch are preserved in [`docs/dns-records-2026-01-12.md`](docs/dns-records-2026-01-12.md) for reference.
+The site was moved from CloudCannon to Cloudflare Pages in April 2026, and rebuilt from a starter template into the current hand-written codebase in November 2026. Notes from before the rebuild are in `docs/` and describe the old structure.
 
 ## License
 

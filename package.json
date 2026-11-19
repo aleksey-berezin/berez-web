@@ -1,21 +1,14 @@
 {
   "name": "berez-web",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "start": "eleventy --serve --quiet",
+    "build": "eleventy"
+  },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.8",
-    "@11ty/eleventy-img": "^7.1.1",
-    "@biomejs/biome": "^2.6.8",
-    "esbuild": "^0.28.2",
-    "lightningcss": "^1.33.0",
-    "sharp": "^0.35.5"
-  },
-  "scripts": {
-    "start": "eleventy --serve --incremental --quiet",
-    "build": "eleventy",
-    "format": "biome format --write ./_source",
-    "lint": "biome lint --write ./_source",
-    "check": "biome check --write ./_source"
+    "@11ty/eleventy-img": "^7.1.1"
   }
 }

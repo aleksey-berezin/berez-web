@@ -1,92 +1,51 @@
 ---
 title: Portland Multifamily Investment | Berez Group
 description: Berez Investment Group acquires and repositions B and C class multifamily properties in Portland Metro area. Specialized in 2-3 bedroom garden-style apartments with value-add potential.
-layout: base.html
+layout: layout.html
 permalink: /
-published: 2024-01-15
-modified: 2026-11-19
-author: Berez Investment Group
-keywords: multifamily investment, apartment acquisitions, Portland real estate, value-add apartments, workforce housing, B class apartments, Pacific Northwest real estate, Gresham apartments, Fairview properties
-og_type: website
 ---
 
-<header id="header" class="site-header">
-  <div class="container">
-    <div class="site-header__inner">
-      <a class="logo" href="/">
-        <span class="font-weight-xxl">Berez Investment Group</span>
-      </a>
-      
-      <burger-menu class="burger-menu" max-width="767">
-        <button class="burger-menu__trigger" aria-label="Toggle navigation" aria-expanded="false">
-          <span class="burger-menu__bar"></span>
-        </button>
-        <nav class="burger-menu__panel" aria-label="Primary navigation">
-          <a class="burger-menu__logo" href="/">
-            <span class="font-weight-xxl">Berez Investment Group</span>
-          </a>
-          <ul class="burger-menu__list">
-            <li><a href="#about" class="burger-menu__link">About</a></li>
-            <li><a href="#strategy" class="burger-menu__link">Strategy</a></li>
-            <li><a href="#portland" class="burger-menu__link">Why Portland</a></li>
-            <li><a href="#criteria" class="burger-menu__link">Acquisition Criteria</a></li>
-            <li><a href="#portfolio" class="burger-menu__link">Portfolio</a></li>
-            <li><a href="#management" class="burger-menu__link">Management</a></li>
-            <li><a href="#faq" class="burger-menu__link">FAQ</a></li>
-            <li><a href="#contact" class="burger-menu__link">Contact</a></li>
-          </ul>
-        </nav>
-      </burger-menu>
-    </div>
-  </div>
-</header>
+<main id="main">
 
-<main>
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section">
-    <div class="container">
-      <h1 class="hero-title">
-        Boutique investment company focused on <span class="accent">multifamily acquisitions</span> in the Pacific Northwest.
-      </h1>
-      <p class="hero-subtitle">
+  <section class="hero">
+    <div class="wrap">
+      <h1>Boutique investment company focused on <em>multifamily acquisitions</em> in the Pacific Northwest.</h1>
+      <p class="hero-lede">
         We acquire, manage, and reposition quality apartment communities with an emphasis on long-term value creation and wealth preservation.
       </p>
-      <div class="hero-buttons">
-        <a href="#about" class="button --primary --lg">Learn More</a>
-        <a href="#contact" class="button --lg">Contact Us</a>
-      </div>
-      <p class="hero-meta">
-        <span>4 communities</span>
-        <span>90 units</span>
-        <span>Portland Metro, Oregon</span>
+      <p class="hero-actions">
+        <a class="button primary" href="#about">Learn More</a>
+        <a class="button" href="#contact">Contact Us</a>
       </p>
+      <ul class="hero-facts">
+        <li>4 communities</li>
+        <li>90 units</li>
+        <li>Portland Metro, Oregon</li>
+      </ul>
     </div>
   </section>
 
-  <!-- Main Content with Side Nav -->
-  <div class="content-layout container">
-    <nav class="side-nav">
-      <ul class="unlisted">
-        <li><a href="#about" class="side-nav-link">About</a></li>
-        <li><a href="#strategy" class="side-nav-link">Strategy</a></li>
-        <li><a href="#portland" class="side-nav-link">Why Portland</a></li>
-        <li><a href="#criteria" class="side-nav-link">Acquisition Criteria</a></li>
-        <li><a href="#portfolio" class="side-nav-link">Portfolio</a></li>
-        <li><a href="#management" class="side-nav-link">Management</a></li>
-        <li><a href="#faq" class="side-nav-link">FAQ</a></li>
-        <li><a href="#contact" class="side-nav-link">Contact</a></li>
+  <div class="layout wrap">
+
+    {%- comment %} One nav: a sticky sidebar on desktop, a full-screen popover on phones. {% endcomment %}
+    <nav class="menu" id="menu" popover aria-label="Sections">
+      <button class="menu-close" popovertarget="menu" popovertargetaction="hide" aria-label="Close menu">&times;</button>
+      <ul>
+        {%- for item in site.nav %}
+        <li><a href="#{{ item.id }}">{{ item.label }}</a></li>
+        {%- endfor %}
       </ul>
     </nav>
 
-    <div class="main-content">
-      <!-- About Section -->
-      <section class="content-section">
-        <span class="section-label">About Us</span>
-        <h2 class="section-title" id="about">Our Mission</h2>
-        <p class="about-lead">
+    <div class="sections">
+
+      <section id="about">
+        <p class="eyebrow">About Us</p>
+        <h2>Our Mission</h2>
+        <p class="lead">
           Berez Investment Group strategically invests in multifamily communities throughout the Pacific Northwest. Through these investments, we provide significant cash-on-cash returns while preserving and enhancing equity over the long term.
         </p>
-        <dl class="about-facts">
+        <dl class="facts">
           <div><dt>Private company</dt><dd>We invest our own capital. We are not a fund and answer to no outside investors.</dd></div>
           <div><dt>We close</dt><dd>When we commit to a deal, we close.</dd></div>
           <div><dt>Long-term owners</dt><dd>We typically hold for 7 to 10 years and are prepared to hold longer.</dd></div>
@@ -96,110 +55,84 @@ og_type: website
         </dl>
       </section>
 
-      <!-- Strategy Section -->
-      <section class="content-section">
-        <span class="section-label">Our Approach</span>
-        <h2 class="section-title" id="strategy">Investment Strategy</h2>
-        
-        <ol class="strategy-steps" data-reveal>
-          <li class="strategy-step">
-            <span class="strategy-node" aria-hidden="true">01</span>
+      <section id="strategy">
+        <p class="eyebrow">Our Approach</p>
+        <h2>Investment Strategy</h2>
+        <ol class="steps" data-reveal>
+          <li>
             <h3>Identify</h3>
             <p>Through our extensive network, we identify stable, well-located multifamily investment opportunities with strong in-place yields and value-add potential.</p>
           </li>
-          <li class="strategy-step">
-            <span class="strategy-node" aria-hidden="true">02</span>
+          <li>
             <h3>Acquire</h3>
             <p>We target properties with operational and physical repositioning opportunities, securing advantageous financing that aligns with each investment's profile.</p>
           </li>
-          <li class="strategy-step">
-            <span class="strategy-node" aria-hidden="true">03</span>
+          <li>
             <h3>Reposition</h3>
             <p>Execute interior and exterior renovations to modernize units and enhance amenities, providing higher quality living while generating substantial ROI.</p>
           </li>
-          <li class="strategy-step">
-            <span class="strategy-node" aria-hidden="true">04</span>
+          <li>
             <h3>Manage</h3>
             <p>Active asset management ensures operational goals are met while maintaining sufficient liquidity for ongoing improvements and long-term value creation.</p>
           </li>
         </ol>
       </section>
 
-      <!-- Why Portland Section -->
-      <section class="content-section">
-        <span class="section-label">Our Market</span>
-        <h2 class="section-title" id="portland">Why Portland</h2>
-        
-        <p class="section-text mb-lg">
+      <section id="portland">
+        <p class="eyebrow">Our Market</p>
+        <h2>Why Portland</h2>
+        <p class="intro">
           The Portland metro area is moving from correction into early recovery. Vacancy is falling, the construction pipeline has shrunk to a fraction of its 2022 peak, and rents are holding steady while the market absorbs the last wave of new supply. Here's what the numbers look like:<sup>1</sup>
         </p>
-        
-        <div class="stats-row">
-          <div class="stat-item">
-            <span class="stat-value" data-count="6.6" data-suffix="%">6.6%</span>
-            <span class="stat-label">Vacancy</span>
+
+        <dl class="stats">
+          <div><dt>Vacancy</dt><dd data-count="6.6">6.6%</dd></div>
+          <div><dt>Units Absorbed</dt><dd data-count="4459">4,459</dd></div>
+          <div><dt>Units Delivered</dt><dd data-count="2302">2,302</dd></div>
+          <div><dt>Under Construction</dt><dd data-count="2259">2,259</dd></div>
+        </dl>
+
+        <dl class="rows" data-reveal>
+          <div>
+            <dt>Supply is drying up</dt>
+            <dd>About 2,300 units are under construction, down from a peak of 12,902 in late 2022 and less than 1% of existing inventory,<sup>1</sup> a level last seen in 2011–2012.<sup>4</sup> Construction starts have stayed below 1,000 units a quarter since mid-2023, and deliveries are expected to stay below 2,000 units a year through 2027.<sup>2</sup></dd>
           </div>
-          <div class="stat-item">
-            <span class="stat-value" data-count="4459">4,459</span>
-            <span class="stat-label">Units Absorbed</span>
+          <div>
+            <dt>Demand is outpacing new supply</dt>
+            <dd>The metro absorbed 4,459 units over the past 12 months against 2,302 delivered, and vacancy is down a full percentage point from a year ago.<sup>1</sup> East Portland absorbed 857 units over the same period, the second-highest total of any submarket.<sup>3</sup></dd>
           </div>
-          <div class="stat-item">
-            <span class="stat-value" data-count="2302">2,302</span>
-            <span class="stat-label">Units Delivered</span>
+          <div>
+            <dt>Mid-range and older properties are holding occupancy</dt>
+            <dd>Vacancy is 6.3% in mid-range (3 Star) properties against 7.8% in luxury (4 and 5 Star) properties,<sup>1</sup> and 5.8% in properties built before 2000 against 8.5% in newer ones.<sup>2</sup> Two-bedroom units have the lowest vacancy of any unit type at 5.9%, against 7.4% for studios.<sup>4</sup> Almost all new construction is aimed at the top of the market: roughly four luxury units are underway for every 3 Star unit.<sup>1</sup></dd>
           </div>
-          <div class="stat-item">
-            <span class="stat-value" data-count="2259">2,259</span>
-            <span class="stat-label">Under Construction</span>
-          </div>
-        </div>
-        
-        <div class="market-ledger" data-reveal="stagger">
-          <div class="market-row">
-            <h3>Supply is drying up</h3>
-            <p>About 2,300 units are under construction, down from a peak of 12,902 in late 2022 and less than 1% of existing inventory,<sup>1</sup> a level last seen in 2011–2012.<sup>4</sup> Construction starts have stayed below 1,000 units a quarter since mid-2023, and deliveries are expected to stay below 2,000 units a year through 2027.<sup>2</sup></p>
-          </div>
-          <div class="market-row">
-            <h3>Demand is outpacing new supply</h3>
-            <p>The metro absorbed 4,459 units over the past 12 months against 2,302 delivered, and vacancy is down a full percentage point from a year ago.<sup>1</sup> East Portland absorbed 857 units over the same period, the second-highest total of any submarket.<sup>3</sup></p>
-          </div>
-          <div class="market-row">
-            <h3>Mid-range and older properties are holding occupancy</h3>
-            <p>Vacancy is 6.3% in mid-range (3 Star) properties against 7.8% in luxury (4 and 5 Star) properties,<sup>1</sup> and 5.8% in properties built before 2000 against 8.5% in newer ones.<sup>2</sup> Two-bedroom units have the lowest vacancy of any unit type at 5.9%, against 7.4% for studios.<sup>4</sup> Almost all new construction is aimed at the top of the market: roughly four luxury units are underway for every 3 Star unit.<sup>1</sup></p>
-          </div>
-        </div>
-        
-        <footer class="source-citation">
-          <p>Market data last updated {{ modified | date: "%B %Y", "UTC" }}. Sources: <sup>1</sup> CoStar Multi-Family Market Report and Capital Markets Report, Portland, November 2026. <sup>2</sup> Colliers Portland Multifamily Market Report, Q3 2026. <sup>3</sup> CBRE Figures, Portland Multifamily, Q3 2026. <sup>4</sup> Multifamily NW Apartment Report, Fall 2026.</p>
-        </footer>
+        </dl>
+
+        <p class="sources">
+          Market data last updated {{ site.updated | date: "%B %Y" }}. Sources:
+          <sup>1</sup> CoStar Multi-Family Market Report and Capital Markets Report, Portland, November 2026.
+          <sup>2</sup> Colliers Portland Multifamily Market Report, Q3 2026.
+          <sup>3</sup> CBRE Figures, Portland Multifamily, Q3 2026.
+          <sup>4</sup> Multifamily NW Apartment Report, Fall 2026.
+        </p>
       </section>
 
-      <!-- Criteria Section -->
-      <section class="content-section">
-        <span class="section-label">What We're Looking For</span>
-        <h2 class="section-title" id="criteria">Acquisition Criteria</h2>
-        <p class="section-text">
+      <section id="criteria">
+        <p class="eyebrow">What We're Looking For</p>
+        <h2>Acquisition Criteria</h2>
+        <p class="intro">
           We focus on workforce housing in East Portland and the surrounding suburbs, a segment where very little new product is being built.
         </p>
-        
-        <div class="criteria-headline" data-reveal>
-          <div class="criteria-figure">
-            <span class="criteria-figure-value">10–60</span>
-            <span class="criteria-figure-label">Units</span>
-          </div>
-          <div class="criteria-figure">
-            <span class="criteria-figure-value">$2–10M</span>
-            <span class="criteria-figure-label">Purchase Price</span>
-          </div>
-          <div class="criteria-figure">
-            <span class="criteria-figure-value">7%</span>
-            <span class="criteria-figure-label">Target Going-In Cap Rate</span>
-          </div>
-        </div>
 
-        <div class="criteria-specs" data-reveal>
-          <div class="criteria-group">
-            <h3 class="criteria-group-title">Property</h3>
-            <dl class="criteria-list">
+        <dl class="figures" data-reveal>
+          <div><dt>Units</dt><dd>10–60</dd></div>
+          <div><dt>Purchase Price</dt><dd>$2–10M</dd></div>
+          <div><dt>Target Going-In Cap Rate</dt><dd>7%</dd></div>
+        </dl>
+
+        <div class="specs" data-reveal>
+          <div>
+            <h3>Property</h3>
+            <dl>
               <div><dt>Type</dt><dd>Townhomes and apartments</dd></div>
               <div><dt>Style</dt><dd>Garden or townhouse</dd></div>
               <div><dt>Unit mix</dt><dd>2–3 bedrooms, family-sized</dd></div>
@@ -207,18 +140,16 @@ og_type: website
               <div><dt>Vintage</dt><dd>1980s or newer, or renovated</dd></div>
             </dl>
           </div>
-
-          <div class="criteria-group">
-            <h3 class="criteria-group-title">Location</h3>
-            <dl class="criteria-list">
+          <div>
+            <h3>Location</h3>
+            <dl>
               <div><dt>Primary</dt><dd>East Portland, Gresham, Troutdale, Fairview</dd></div>
               <div><dt>Also consider</dt><dd>Clackamas and Washington counties</dd></div>
             </dl>
           </div>
-
-          <div class="criteria-group">
-            <h3 class="criteria-group-title">Deal</h3>
-            <dl class="criteria-list">
+          <div>
+            <h3>Deal</h3>
+            <dl>
               <div><dt>Condition</dt><dd>Stable, or light to moderate value-add</dd></div>
               <div><dt>Financing</dt><dd>Conventional or loan assumption</dd></div>
               <div><dt>Capital</dt><dd>Our own; not a fund</dd></div>
@@ -227,206 +158,106 @@ og_type: website
           </div>
         </div>
 
-        <div class="criteria-cta">
+        <div class="pitch">
           <p>
             <strong>What's trading.</strong> Portland Metro recorded 23 sales between $2 million and $25 million in Q3 2026, at an average of $169,321 per unit and a 6.8% cap rate (Colliers, Q3 2026). If you own or represent a property in this range, we'd like to see it.
           </p>
-          <a href="mailto:hello@berez.in?subject=Property%20for%20consideration" class="button --primary --lg">Send Us a Property</a>
+          <a class="button primary" href="mailto:{{ site.email }}?subject=Property%20for%20consideration">Send Us a Property</a>
         </div>
       </section>
 
-      <!-- Portfolio Section -->
-      <section class="content-section">
-        <span class="section-label">Our Properties</span>
-        <h2 class="section-title" id="portfolio">Current Portfolio</h2>
-        <p class="section-text">
+      <section id="portfolio">
+        <p class="eyebrow">Our Properties</p>
+        <h2>Current Portfolio</h2>
+        <p class="intro">
           Four communities and 90 units in the Portland Metro area, all with two and three bedroom layouts.
         </p>
-        
-        <div class="portfolio-grid" data-reveal="stagger">
-          <article class="property-card">
-            <a href="https://www.glisantownhomes.com/" target="_blank" rel="noopener" aria-label="Glisan Townhomes, 10 units (opens in new tab)">
-              <div class="property-image">
-                <img src="/assets/images/glisan-townhomes.jpg" alt="Glisan Townhomes exterior" sizes="(min-width: 768px) 460px, 100vw">
-              </div>
-              <div class="property-info">
-                <div>
-                  <h3 class="property-name">Glisan Townhomes <span class="property-arrow" aria-hidden="true">→</span></h3>
-                  <p class="property-meta">Townhomes · Built 2008</p>
-                </div>
-                <p class="property-units">
-                  <span class="property-units-value">10</span>
-                  <span class="property-units-label">Units</span>
-                </p>
-              </div>
-            </a>
-          </article>
 
-          <article class="property-card">
-            <a href="https://www.lincolntownhomes.com/" target="_blank" rel="noopener" aria-label="Lincoln Court Townhomes, 16 units (opens in new tab)">
-              <div class="property-image">
-                <img src="/assets/images/lincoln-court-townhomes.jpg" alt="Lincoln Court Townhomes exterior" sizes="(min-width: 768px) 460px, 100vw">
-              </div>
-              <div class="property-info">
-                <div>
-                  <h3 class="property-name">Lincoln Court Townhomes <span class="property-arrow" aria-hidden="true">→</span></h3>
-                  <p class="property-meta">Townhomes · Built 1972, renovated</p>
-                </div>
-                <p class="property-units">
-                  <span class="property-units-value">16</span>
-                  <span class="property-units-label">Units</span>
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <article class="property-card">
-            <a href="https://www.robertstownhomes.com/" target="_blank" rel="noopener" aria-label="Roberts Court Townhomes, 20 units (opens in new tab)">
-              <div class="property-image">
-                <img src="/assets/images/roberts-court-townhomes.webp" alt="Roberts Court Townhomes street view" sizes="(min-width: 768px) 460px, 100vw">
-              </div>
-              <div class="property-info">
-                <div>
-                  <h3 class="property-name">Roberts Court Townhomes <span class="property-arrow" aria-hidden="true">→</span></h3>
-                  <p class="property-meta">Townhomes · Built 2006</p>
-                </div>
-                <p class="property-units">
-                  <span class="property-units-value">20</span>
-                  <span class="property-units-label">Units</span>
-                </p>
-              </div>
-            </a>
-          </article>
-
-          <article class="property-card">
-            <a href="https://www.459rock.com/" target="_blank" rel="noopener" aria-label="459 Rock Apartments, 44 units (opens in new tab)">
-              <div class="property-image">
-                <img src="/assets/images/459-rock-apartments.jpg" alt="459 Rock Apartments building exterior" sizes="(min-width: 768px) 460px, 100vw">
-              </div>
-              <div class="property-info">
-                <div>
-                  <h3 class="property-name">459 Rock Apartments <span class="property-arrow" aria-hidden="true">→</span></h3>
-                  <p class="property-meta">Mid-rise, mixed use · Built 2022</p>
-                </div>
-                <p class="property-units">
-                  <span class="property-units-value">44</span>
-                  <span class="property-units-label">Units</span>
-                </p>
-              </div>
-            </a>
-          </article>
+        <div class="properties" data-reveal>
+          {%- for property in properties %}
+          <a class="property" href="{{ property.url }}" target="_blank" rel="noopener" aria-label="{{ property.name }}, {{ property.units }} units (opens in new tab)">
+            <img src="/photos/{{ property.photo }}" alt="{{ property.alt }}" sizes="(min-width: 768px) 460px, 100vw">
+            <span class="property-text">
+              <strong>{{ property.name }}</strong>
+              <span>{{ property.facts }}</span>
+            </span>
+            <span class="property-units"><b>{{ property.units }}</b> Units</span>
+          </a>
+          {%- endfor %}
         </div>
       </section>
 
-      <!-- Property Management Philosophy Section -->
-      <section class="content-section">
-        <span class="section-label">How We Operate</span>
-        <h2 class="section-title" id="management">Property Management Philosophy</h2>
-        
-        <p class="section-text">
+      <section id="management">
+        <p class="eyebrow">How We Operate</p>
+        <h2>Property Management Philosophy</h2>
+        <p class="intro">
           <strong>Property management is the foundation of successful multifamily investing.</strong> While many investors treat management as an afterthought, we view it as central to our value creation strategy. The right management partner directly impacts tenant satisfaction, operational efficiency, and ultimately, our returns.
         </p>
-        
-        <p class="section-text">
+        <p class="intro">
           Our approach is rooted in <strong>active oversight combined with experienced third-party execution</strong>. We don't simply hand properties over to a management company and hope for the best. Instead, we maintain close involvement in strategic decisions while leveraging professional management expertise for day-to-day operations.
         </p>
-        
-        <h3 class="subsection-title">Our Management Approach</h3>
-        
-        <div class="approach-grid" data-reveal="stagger">
-          <div class="approach-card">
-            <h4>Resident Quality</h4>
-            <p>We prioritize stable, long-term residents over maximizing occupancy at any cost. Careful tenant screening, responsive maintenance, and fair treatment create communities where people want to stay.</p>
+
+        <h3 class="ruled">Our Management Approach</h3>
+        <dl class="rows ruled-rows" data-reveal>
+          <div>
+            <dt>Resident Quality</dt>
+            <dd>We prioritize stable, long-term residents over maximizing occupancy at any cost. Careful tenant screening, responsive maintenance, and fair treatment create communities where people want to stay.</dd>
           </div>
-          
-          <div class="approach-card">
-            <h4>Preventive Maintenance</h4>
-            <p>Deferred maintenance destroys property value and resident satisfaction. We invest in preventive maintenance programs that address issues before they become expensive emergencies.</p>
+          <div>
+            <dt>Preventive Maintenance</dt>
+            <dd>Deferred maintenance destroys property value and resident satisfaction. We invest in preventive maintenance programs that address issues before they become expensive emergencies.</dd>
           </div>
-          
-          <div class="approach-card">
-            <h4>Data-Driven Decisions</h4>
-            <p>Monthly financial reviews, quarterly property inspections, and ongoing market analysis inform our operational strategy. We track key metrics to optimize performance.</p>
+          <div>
+            <dt>Data-Driven Decisions</dt>
+            <dd>Monthly financial reviews, quarterly property inspections, and ongoing market analysis inform our operational strategy. We track key metrics to optimize performance.</dd>
           </div>
-          
-          <div class="approach-card">
-            <h4>Technology, Communications & Scale</h4>
-            <p>We leverage modern technology and clear communications to streamline operations. Our growing portfolio enables efficiencies of scale through better vendor contracts, standardized processes, and shared best practices across properties.</p>
+          <div>
+            <dt>Technology, Communications &amp; Scale</dt>
+            <dd>We leverage modern technology and clear communications to streamline operations. Our growing portfolio enables efficiencies of scale through better vendor contracts, standardized processes, and shared best practices across properties.</dd>
           </div>
-        </div>
-        
-        <h3 class="subsection-title" id="management-partners">Management Partners</h3>
-        
-        <p class="section-text">
-          <strong>Current Property Manager:</strong> <a href="https://www.vcs-pm.com/" target="_blank" rel="noopener" aria-label="VCS Property Management (opens in new tab)">VCS Property Management</a> currently manages our portfolio, bringing customer-focused service and deep local market knowledge to our properties. Their in-house maintenance team and responsive approach align well with our emphasis on resident satisfaction and property preservation.
+        </dl>
+
+        <h3 class="ruled">Management Partners</h3>
+        <p class="intro">
+          <strong>Current Property Manager:</strong> <a href="https://www.vcs-pm.com/" target="_blank" rel="noopener">VCS Property Management</a> currently manages our portfolio, bringing customer-focused service and deep local market knowledge to our properties. Their in-house maintenance team and responsive approach align well with our emphasis on resident satisfaction and property preservation.
         </p>
-        
-        <p class="section-text">
-          We've also worked successfully with <a href="https://tmgnorthwest.com/" target="_blank" rel="noopener" aria-label="TMG Property Management (opens in new tab)">TMG Property Management</a>, one of the Pacific Northwest's established property management firms. Each partnership has contributed to our understanding of what makes property management effective in the Portland Metro market.
+        <p class="intro">
+          We've also worked successfully with <a href="https://tmgnorthwest.com/" target="_blank" rel="noopener">TMG Property Management</a>, one of the Pacific Northwest's established property management firms. Each partnership has contributed to our understanding of what makes property management effective in the Portland Metro market.
         </p>
-        
-        <p class="section-text">
+        <p class="intro">
           Our management partners handle tenant relations, rent collection, lease approvals, maintenance coordination, and regulatory compliance. We maintain oversight of major capital decisions, vendor selection for significant projects, and strategic repositioning initiatives.
         </p>
       </section>
 
-      <!-- FAQ Section -->
-      <section class="content-section">
-        <span class="section-label">Common Questions</span>
-        <h2 class="section-title" id="faq">Frequently Asked Questions</h2>
-        
-        <div class="faq-accordion">
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">
-              <span class="faq-prompt">How do you finance property acquisitions?</span>
-              <span class="faq-short">Conventional bank loans or assumed loans, at no more than 75% loan-to-value.</span>
+      <section id="faq">
+        <p class="eyebrow">Common Questions</p>
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq">
+          {%- for item in faq %}
+          <details name="faq">
+            <summary>
+              <span>{{ item.question }}</span>
+              <strong>{{ item.answer }}</strong>
             </summary>
-            <div class="faq-answer">
-              <p>For most acquisitions, we secure conventional multifamily loans through local and regional banks that understand the Portland market. These typically require 25-30% down payment and offer 20-25 year amortization.</p>
-              <p>When sellers have existing favorable financing—particularly low fixed-rate loans originated before interest rates rose—we prioritize assuming those loans to maintain advantageous terms. We also evaluate properties with Freddie Mac or Fannie Mae agency debt that can be assumed. Our conservative leverage approach targets maximum 75% loan-to-value, ensuring we maintain sufficient equity cushion and cash flow even if market conditions soften.</p>
-            </div>
+            {%- for paragraph in item.detail %}
+            <p>{{ paragraph }}</p>
+            {%- endfor %}
           </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">
-              <span class="faq-prompt">Do you accept outside investors or operate as a fund?</span>
-              <span class="faq-short">No. We are a private company investing our own capital, not a fund.</span>
-            </summary>
-            <div class="faq-answer">
-              <p>Our boutique approach allows us to move quickly on acquisitions, maintain operational flexibility, and take a truly long-term view without external pressure for distributions or exits. If you're interested in discussing potential partnership opportunities on specific deals, we're open to conversations on a case-by-case basis for qualified partners who share our investment philosophy.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">
-              <span class="faq-prompt">Are you actively looking to buy more properties right now?</span>
-              <span class="faq-short">Yes. We are buying now.</span>
-            </summary>
-            <div class="faq-answer">
-              <p>Pricing has reset: CoStar's November 2026 capital markets report puts the market price per unit near $235,000, down from a peak of about $294,000, and shows sales over the past 12 months closing an average of 11.5% below asking. Capital is returning, with CBRE recording $658.8 million of sales in Q3 2026, the highest quarterly volume since 2022, and CoStar notes that institutional buyers are targeting newer, larger communities. We buy smaller workforce properties with our own capital, which lets us move quickly and close with certainty.</p>
-              <p>We're particularly interested in properties with assumable low-rate financing, deferred maintenance that we can address through our renovation expertise, or operational inefficiencies that can be improved through better management. If you have a property that fits our acquisition criteria—or know of one coming to market—we'd welcome the opportunity to discuss a potential transaction.</p>
-            </div>
-          </details>
+          {%- endfor %}
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section class="content-section">
-        <div class="contact-panel">
-          <span class="section-label">Get In Touch</span>
-          <h2 class="contact-title" id="contact">Have a property that fits?</h2>
+      <section id="contact">
+        <div class="contact">
+          <p class="eyebrow">Get In Touch</p>
+          <h2>Have a property that fits?</h2>
           <p>
             Send us the details and we'll respond quickly. Interested in learning more about Berez Investment Group? We'd love to hear from you.
           </p>
-          <a href="mailto:hello@berez.in" class="button --lg contact-button">Email hello@berez.in</a>
+          <a class="button" href="mailto:{{ site.email }}">Email {{ site.email }}</a>
         </div>
       </section>
+
     </div>
   </div>
 </main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p>&copy; {{ "now" | date: "%Y" }} Berez Investment Group. All rights reserved.</p>
-  </div>
-</footer>
