@@ -38,14 +38,6 @@
 	font-weight: var(--font-weight-xxl);
 }
 
-.line-length-md {
-	max-inline-size: var(--line-length-md);
-}
-
-.line-length-lg {
-	max-inline-size: var(--line-length-lg);
-}
-
 .unlisted {
 	list-style: none;
 	padding-left: 0;
@@ -58,10 +50,6 @@
 
 .mb-0 {
 	margin-bottom: 0;
-}
-
-.mt-lg {
-	margin-top: var(--space-lg);
 }
 
 .mb-lg {

@@ -7,7 +7,6 @@
 
 	/* source colors - Berez palette: white/gray/dark red/black */
 	--primary: oklch(35% 0.15 15deg); /* dark red */
-	--primary-300: 70% c h; /* used in blockquote */
 
 	/* preset colors */
 	--color-text: #1a1a1a;
@@ -57,6 +56,7 @@
 	/* Base scales from 320px to 1920px viewport */
 	--font-size-base: clamp(1.0625rem, 0.675rem + 0.5vw, 1.75rem);
 	/* Each size uses clamp() for proper fluid scaling */
+	--font-size-xxs: 0.75rem;
 	--font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
 	--font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
 	--font-size-md: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
@@ -67,8 +67,6 @@
 	--font-size-poster: clamp(3rem, 2rem + 5vw, 5.5rem);
 
 	/* line length - Fluid scaling for optimal readability */
-	--line-length-md: clamp(48ch, 50ch + 2vw, 64ch);
-	--line-length-lg: clamp(56ch, 60ch + 2vw, 72ch);
 	--line-length-xl: clamp(64ch, 70ch + 2vw, 80ch);
 
 	/* line height */
@@ -81,7 +79,6 @@
 
 	/* letter spacing */
 	--letter-spacing-sm: -0.02em;
-	--letter-spacing-md: 0;
 	--letter-spacing-lg: 0.08em;
 
 	/* ---------------------------------------------------------------------------
@@ -89,7 +86,6 @@
   --------------------------------------------------------------------------- */
 
 	/* border radius */
-	--border-radius-0: 0;
 	--border-radius-sm: 0.2rem;
 	--border-radius-md: 0.4rem;
 	--border-radius-lg: 0.8rem;
@@ -118,13 +114,9 @@
 	/* ---------------------------------------------------------------------------
   animation timing
   --------------------------------------------------------------------------- */
-	--transition-fast: 0.1s ease;
 	--transition-base: 0.2s ease;
 	--transition-slow: 0.3s ease;
 	--transition-slower: 0.4s ease;
-	--transition-slowest: 0.5s ease;
-	--transition-long: 0.6s ease;
-	--animation-delay-xs: 0.05s;
 	--animation-delay-sm: 0.1s;
 	--animation-delay-md: 0.15s;
 	--animation-delay-lg: 0.2s;

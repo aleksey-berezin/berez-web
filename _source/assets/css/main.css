@@ -12,20 +12,6 @@
    Site-Specific Styles (outside layers for proper cascade priority)
    ========================================================================= */
 
-/* Select dropdown overrides */
-@supports (appearance: base-select) {
-	select option:checked {
-		background-color: #f5eeee; /* Light red tint - specific to dropdown */
-		color: var(--color-accent);
-	}
-
-	select option:checked::before {
-		content: "✓";
-		margin-right: 0.5em;
-		font-weight: bold;
-	}
-}
-
 /* -------------------------------------------------------------------------
    Skip Link
    -------------------------------------------------------------------------- */
@@ -39,7 +25,8 @@
 	color: var(--color-accent);
 	border: 2px solid var(--color-accent);
 	border-radius: 4px;
-	font-weight: 600;
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-lg);
 	text-decoration: none;
 }
 
@@ -267,28 +254,28 @@
 		transform: translateY(0);
 	}
 
-	.burger-menu[status='open'] .burger-menu__link:nth-child(1) {
+	.burger-menu[status='open'] li:nth-child(1) .burger-menu__link {
 		transition-delay: var(--animation-delay-sm);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(2) {
+	.burger-menu[status='open'] li:nth-child(2) .burger-menu__link {
 		transition-delay: var(--animation-delay-md);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(3) {
+	.burger-menu[status='open'] li:nth-child(3) .burger-menu__link {
 		transition-delay: var(--animation-delay-lg);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(4) {
+	.burger-menu[status='open'] li:nth-child(4) .burger-menu__link {
 		transition-delay: var(--animation-delay-xl);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(5) {
+	.burger-menu[status='open'] li:nth-child(5) .burger-menu__link {
 		transition-delay: var(--animation-delay-xxl);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(6) {
+	.burger-menu[status='open'] li:nth-child(6) .burger-menu__link {
 		transition-delay: 0.35s;
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(7) {
+	.burger-menu[status='open'] li:nth-child(7) .burger-menu__link {
 		transition-delay: var(--animation-delay-xxxl);
 	}
-	.burger-menu[status='open'] .burger-menu__link:nth-child(8) {
+	.burger-menu[status='open'] li:nth-child(8) .burger-menu__link {
 		transition-delay: 0.45s;
 	}
 
@@ -355,9 +342,6 @@
 	flex-wrap: wrap;
 }
 
-.hero-section .button {
-	/* No animation - content appears immediately */
-}
 
 /* Faint drafting grid, fading in from the right */
 .hero-section {
@@ -506,8 +490,7 @@
 		text-overflow: ellipsis;
 	}
 
-	.side-nav-link:hover,
-	.side-nav-link.active {
+	.side-nav-link:hover {
 		color: var(--color-accent);
 		border-left-color: var(--color-accent);
 	}
@@ -563,15 +546,6 @@
 	letter-spacing: var(--letter-spacing-sm);
 }
 
-/* Prevent "Investment Strategy" from wrapping on mobile */
-@media (--mobile) {
-	.section-title {
-		/* Use fluid variable directly - it already has proper scaling */
-		font-size: var(--font-size-xxl);
-		letter-spacing: -0.015em; /* Tighter letter spacing to fit on one line */
-	}
-}
-
 .section-text {
 	font-size: var(--font-size-md);
 	line-height: var(--line-height-lg);
@@ -595,8 +569,8 @@
 	max-width: 30em;
 	font-size: var(--font-size-xl);
 	font-weight: var(--font-weight-md);
-	line-height: 1.35;
-	letter-spacing: -0.01em;
+	line-height: var(--line-height-md);
+	letter-spacing: var(--letter-spacing-sm);
 	color: var(--color-text);
 }
 
@@ -697,7 +671,8 @@
 .strategy-step h3 {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-xl);
-	line-height: 2.5rem;
+	line-height: 1.3;
+	padding-top: calc((2.5rem - 1.3em) / 2);
 	color: var(--color-text);
 }
 
@@ -738,7 +713,7 @@
 	}
 
 	.strategy-step h3 {
-		line-height: 1.3;
+		padding-top: 0;
 	}
 }
 
@@ -795,7 +770,7 @@
 .approach-card h4 {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-xl);
-	line-height: 1.2;
+	line-height: 1.3;
 	color: var(--color-text);
 	margin-bottom: var(--space-xs);
 }
@@ -864,6 +839,7 @@
 	font-weight: var(--font-weight-xxl);
 	color: var(--color-accent);
 	line-height: 1;
+	letter-spacing: var(--letter-spacing-sm);
 	margin-bottom: var(--space-xxs);
 }
 
@@ -876,10 +852,11 @@
 .stat-label {
 	display: block;
 	font-size: var(--font-size-xs);
-	font-weight: var(--font-weight-md);
+	font-weight: var(--font-weight-lg);
 	color: var(--color-text-muted);
 	text-transform: uppercase;
-	letter-spacing: var(--letter-spacing-sm);
+	letter-spacing: var(--letter-spacing-lg);
+	line-height: 1.4;
 }
 
 /* Tablet: 2 columns - cross pattern */
@@ -945,10 +922,6 @@
 	}
 }
 
-/* Stats - no animations, content appears immediately */
-.stat-item {
-	/* No animation - content appears immediately */
-}
 
 /* Market notes: heading in the left column, detail on the right */
 .market-ledger {
@@ -1052,7 +1025,7 @@
 	font-size: var(--font-size-xl);
 	font-weight: var(--font-weight-xxl);
 	letter-spacing: var(--letter-spacing-sm);
-	line-height: 1.1;
+	line-height: var(--line-height-sm);
 	color: var(--color-accent);
 	white-space: nowrap;
 }
@@ -1107,7 +1080,7 @@
 	margin-top: 0.15em;
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-lg);
-	line-height: 1.35;
+	line-height: 1.3;
 	color: var(--color-text);
 }
 
@@ -1210,6 +1183,7 @@
 	z-index: 1;
 	font-size: var(--font-size-md);
 	font-weight: var(--font-weight-xl);
+	line-height: 1.3;
 	color: white;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 	margin: 0;
@@ -1240,7 +1214,7 @@
 
 .property-desc {
 	font-size: var(--font-size-sm);
-	line-height: var(--line-height-md);
+	line-height: var(--line-height-lg);
 	color: var(--color-text);
 	margin-bottom: var(--space-xs);
 }
@@ -1276,6 +1250,7 @@
 .subsection-title {
 	font-size: var(--font-size-lg);
 	font-weight: var(--font-weight-xl);
+	line-height: 1.3;
 	color: var(--color-text);
 	margin-block: var(--space-lg) var(--space-md);
 	border-bottom: 1px solid var(--color-border);
@@ -1446,18 +1421,22 @@
 }
 
 .source-citation p {
-	font-size: 0.75rem;
+	font-size: var(--font-size-xxs);
 	line-height: 1.5;
 	color: var(--color-text-muted);
 }
 
 /* Footnote markers */
 .content-section sup {
-	font-size: 0.65em;
+	font-size: 0.7em;
 	font-weight: var(--font-weight-lg);
 	line-height: 0;
 	color: var(--color-accent);
 	margin-left: 0.1em;
+}
+
+.source-citation sup {
+	font-size: 0.85em;
 }
 
 /* -------------------------------------------------------------------------
@@ -1600,12 +1579,4 @@
 	font-size: var(--font-size-sm);
 	color: var(--color-text-muted);
 	margin: 0;
-}
-
-/* -------------------------------------------------------------------------
-   Animations
-   -------------------------------------------------------------------------- */
-/* Content sections - no animations, content appears immediately */
-.content-section {
-	/* No animation - content appears immediately */
 }
