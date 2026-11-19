@@ -1171,6 +1171,40 @@ h3.ruled + * {
 }
 
 /* --------------------------------------------------------------------------
+   Contact bar: phones only. A single email button pinned to the bottom of
+   the screen. site.js adds `.show` while the visitor is between the hero
+   and the contact panel; without the script it simply stays hidden.
+   -------------------------------------------------------------------------- */
+.contact-bar {
+	position: fixed;
+	inset: auto 0 0;
+	z-index: 9;
+	padding: var(--space-xs) var(--space-md);
+	padding-bottom: max(var(--space-xs), env(safe-area-inset-bottom));
+	border-top: 1px solid var(--line);
+	background: rgb(255 255 255 / 92%);
+	backdrop-filter: blur(8px);
+	visibility: hidden;
+	translate: 0 100%;
+}
+
+.contact-bar.show {
+	visibility: visible;
+	translate: none;
+}
+
+.contact-bar .button {
+	width: 100%;
+	padding-block: 0.8rem;
+}
+
+@media (width >= 48rem) {
+	.contact-bar {
+		display: none;
+	}
+}
+
+/* --------------------------------------------------------------------------
    Footer and the 404 page
    -------------------------------------------------------------------------- */
 .site-footer {
@@ -1271,6 +1305,12 @@ h3.ruled + * {
 
 	[data-reveal] > :nth-child(n + 4) {
 		transition-delay: 0.36s;
+	}
+
+	.contact-bar {
+		transition:
+			translate 0.3s var(--ease),
+			visibility 0.3s;
 	}
 
 	/* Lines that draw themselves */

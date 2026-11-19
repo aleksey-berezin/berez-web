@@ -1,5 +1,5 @@
 // Berez Investment Group
-// Three small behaviours. The page works without any of them.
+// Four small behaviours. The page works without any of them.
 
 document.documentElement.classList.add('js');
 
@@ -54,3 +54,20 @@ menu?.addEventListener('click', (event) => {
 		menu.hidePopover();
 	}
 });
+
+// 4. Phone contact bar: show it whenever neither the hero (which has its own
+//    contact button) nor the contact panel is on screen.
+const bar = document.querySelector('.contact-bar');
+if (bar) {
+	const onScreen = new Set();
+	const watcher = new IntersectionObserver((entries) => {
+		for (const { target, isIntersecting } of entries) {
+			if (isIntersecting) onScreen.add(target);
+			else onScreen.delete(target);
+		}
+		bar.classList.toggle('show', onScreen.size === 0);
+	});
+	for (const element of document.querySelectorAll('.hero, #contact')) {
+		watcher.observe(element);
+	}
+}
