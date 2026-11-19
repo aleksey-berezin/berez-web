@@ -33,7 +33,7 @@
 	--text-xl: clamp(1.375rem, 1.2rem + 0.875vw, 1.75rem);
 	--text-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.25rem);
 	--text-3xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
-	--text-poster: clamp(3rem, 2rem + 5vw, 5.5rem);
+	--text-poster: clamp(2.375rem, 1rem + 6vw, 5.5rem);
 
 	/* Spacing */
 	--space-2xs: 0.3rem;
@@ -43,6 +43,11 @@
 	--space-lg: 2.5rem;
 	--space-xl: 4.2rem;
 
+	/* Rhythm: padding around each section, and the gap before a block within one.
+	   Tighter on phones, roomier from 48rem. */
+	--section: 3rem;
+	--block: 1.75rem;
+
 	--radius: 0.4rem;
 	--ease: cubic-bezier(0.2, 0.7, 0.2, 1);
 	--header: 3.75rem; /* height of the fixed header */
@@ -51,6 +56,8 @@
 @media (width >= 48rem) {
 	:root {
 		--header: 4.5rem;
+		--section: var(--space-xl);
+		--block: var(--space-lg);
 	}
 }
 
@@ -356,8 +363,8 @@ html:has(.menu:popover-open) {
 	position: relative;
 	display: grid;
 	align-content: center;
-	min-height: 100dvh;
-	padding-block: calc(var(--header) + var(--space-lg)) var(--space-xl);
+	min-height: 100svh;
+	padding-block: calc(var(--header) + var(--space-md)) var(--block);
 	overflow: hidden;
 	background: linear-gradient(var(--paper), var(--wash));
 }
@@ -395,23 +402,52 @@ html:has(.menu:popover-open) {
 
 .hero-lede {
 	max-width: 50ch;
-	margin-block: var(--space-lg) var(--space-xl);
-	font-size: var(--text-lg);
+	margin-block: var(--space-md) var(--block);
 	color: var(--muted);
 }
 
+/* Two buttons side by side, sharing the width on phones */
 .hero-actions {
 	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-md);
+	gap: var(--space-sm);
+}
+
+.hero-actions .button {
+	flex: 1;
+	padding-inline: var(--space-sm);
 }
 
 .hero-facts {
 	display: flex;
 	flex-wrap: wrap;
-	gap: var(--space-xs) var(--space-lg);
-	margin-top: var(--space-xl);
+	gap: var(--space-xs) var(--space-md);
+	margin-top: var(--block);
 	color: var(--muted);
+}
+
+@media (width >= 40rem) {
+	.hero {
+		padding-block: calc(var(--header) + var(--space-lg)) var(--space-xl);
+	}
+
+	.hero-lede {
+		margin-block: var(--space-lg) var(--space-xl);
+		font-size: var(--text-lg);
+	}
+
+	.hero-actions {
+		gap: var(--space-md);
+	}
+
+	.hero-actions .button {
+		flex: none;
+		padding-inline: var(--space-lg);
+	}
+
+	.hero-facts {
+		gap: var(--space-xs) var(--space-lg);
+		margin-top: var(--space-xl);
+	}
 }
 
 .hero-facts li::before {
@@ -433,12 +469,12 @@ html:has(.menu:popover-open) {
 		grid-template-columns: 11rem minmax(0, 1fr);
 		gap: clamp(var(--space-lg), 4vw, var(--space-xl));
 		align-items: start;
-		padding-block: var(--space-xl);
+		padding-block: var(--section);
 	}
 }
 
 .sections > section {
-	padding-block: var(--space-xl);
+	padding-block: var(--section);
 	border-bottom: 1px solid var(--line);
 	/* Land anchor links with the eyebrow just below the fixed header */
 	scroll-margin-top: calc(var(--header) - var(--space-lg));
@@ -465,7 +501,7 @@ html:has(.menu:popover-open) {
 }
 
 .sections > section > :is(h2 + *, dl, ol, div, h3, .sources) {
-	margin-top: var(--space-lg);
+	margin-top: var(--block);
 }
 
 .sections > section > :first-child {
@@ -560,10 +596,18 @@ h3.ruled + * {
    -------------------------------------------------------------------------- */
 .lead {
 	max-width: 30em;
-	font-size: var(--text-xl);
+	font-size: var(--text-lg);
 	font-weight: 500;
-	line-height: 1.4;
-	letter-spacing: -0.02em;
+	line-height: 1.45;
+	letter-spacing: -0.01em;
+}
+
+@media (width >= 40rem) {
+	.lead {
+		font-size: var(--text-xl);
+		line-height: 1.4;
+		letter-spacing: -0.02em;
+	}
 }
 
 .facts {
@@ -806,6 +850,28 @@ h3.ruled + * {
 	line-height: 1.3;
 }
 
+/* On phones each row is one line: label left, value right */
+@media (width < 40rem) {
+	.specs {
+		gap: var(--block);
+	}
+
+	.specs dl > div {
+		display: grid;
+		grid-template-columns: 6.5rem 1fr;
+		gap: var(--space-sm);
+		align-items: baseline;
+	}
+
+	.specs dd {
+		font-size: var(--text-sm);
+	}
+
+	.pitch .button {
+		width: 100%;
+	}
+}
+
 /* Closing line with the call to action */
 .pitch {
 	display: flex;
@@ -829,12 +895,16 @@ h3.ruled + * {
    -------------------------------------------------------------------------- */
 .properties {
 	display: grid;
-	gap: var(--space-lg) var(--space-md);
+	gap: var(--block) var(--space-md);
 }
 
 @media (width >= 48rem) {
 	.properties {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.property picture {
+		aspect-ratio: 3 / 2;
 	}
 }
 
@@ -849,7 +919,7 @@ h3.ruled + * {
 
 .property picture {
 	grid-column: 1 / -1;
-	aspect-ratio: 3 / 2;
+	aspect-ratio: 16 / 9;
 	overflow: hidden;
 	border-radius: var(--radius);
 	background: var(--wash);
@@ -1046,6 +1116,10 @@ h3.ruled + * {
 	.contact {
 		padding: var(--space-xl) var(--space-lg);
 	}
+
+	.contact .button {
+		width: auto;
+	}
 }
 
 /* Fine diagonal lines, fading in from the right */
@@ -1069,7 +1143,7 @@ h3.ruled + * {
 .contact h2 {
 	max-width: 14em;
 	margin-top: var(--space-sm);
-	font-size: var(--text-3xl);
+	font-size: clamp(2rem, 1rem + 4.5vw, 4rem);
 	line-height: 1.05;
 }
 
@@ -1080,6 +1154,7 @@ h3.ruled + * {
 }
 
 .contact .button {
+	width: 100%;
 	border-color: #fff;
 	background: #fff;
 	color: var(--red);
