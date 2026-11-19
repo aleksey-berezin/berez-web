@@ -86,10 +86,14 @@ og_type: website
         <p class="about-lead">
           Berez Investment Group strategically invests in multifamily communities throughout the Pacific Northwest. Through these investments, we provide significant cash-on-cash returns while preserving and enhancing equity over the long term.
         </p>
-        <div class="about-columns">
-          <p>We invest with confidence in communities that are fulfilling for our residents and strategic for our investors. Our hands-on approach to property management ensures we deliver quality living experiences while maximizing returns.</p>
-          <p><strong>Our expertise</strong> comes from years of hands-on experience in multifamily real estate investment, property management, and value-add repositioning. We bring deep market knowledge of the Portland Metro area and a proven track record of successful acquisitions and operations.</p>
-        </div>
+        <dl class="about-facts">
+          <div><dt>Private company</dt><dd>We invest our own capital. We are not a fund and answer to no outside investors.</dd></div>
+          <div><dt>We close</dt><dd>When we commit to a deal, we close.</dd></div>
+          <div><dt>Long-term owners</dt><dd>We typically hold for 7 to 10 years and are prepared to hold longer.</dd></div>
+          <div><dt>Conservative borrowers</dt><dd>Our leverage tops out at 75% loan-to-value, and we assume existing loans where the terms are right.</dd></div>
+          <div><dt>Active operators</dt><dd>Professional third-party managers run day-to-day operations, with monthly financial reviews and quarterly inspections by ownership.</dd></div>
+          <div><dt>Local</dt><dd>Four communities and 90 units, all in the Portland Metro area.</dd></div>
+        </dl>
       </section>
 
       <!-- Strategy Section -->
@@ -152,36 +156,20 @@ og_type: website
         <div class="market-ledger" data-reveal="stagger">
           <div class="market-row">
             <h3>Supply is drying up</h3>
-            <p>About 2,300 units are under construction, down from a peak of 12,902 in late 2022 and less than 1% of existing inventory.<sup>1</sup> Construction starts have stayed below 1,000 units a quarter since mid-2023, and deliveries are expected to stay below 2,000 units a year through 2027.<sup>2</sup></p>
-          </div>
-          <div class="market-row">
-            <h3>Portland avoided the worst of the building boom</h3>
-            <p>The markets that built most aggressively are still working through the glut: vacancy is 10.5% in Phoenix and near 12% in Austin, and Denver passed 12% at the end of 2025.<sup>4</sup> Portland's vacancy is 6.6%, and its construction pipeline is already below 1% of inventory.<sup>1</sup></p>
+            <p>About 2,300 units are under construction, down from a peak of 12,902 in late 2022 and less than 1% of existing inventory,<sup>1</sup> a level last seen in 2011–2012.<sup>4</sup> Construction starts have stayed below 1,000 units a quarter since mid-2023, and deliveries are expected to stay below 2,000 units a year through 2027.<sup>2</sup></p>
           </div>
           <div class="market-row">
             <h3>Demand is outpacing new supply</h3>
             <p>The metro absorbed 4,459 units over the past 12 months against 2,302 delivered, and vacancy is down a full percentage point from a year ago.<sup>1</sup> East Portland absorbed 857 units over the same period, the second-highest total of any submarket.<sup>3</sup></p>
           </div>
           <div class="market-row">
-            <h3>Renting costs far less than owning</h3>
-            <p>The average monthly cost of owning a home in Portland is $3,634, against an average apartment rent of $1,764.<sup>3</sup> With 30-year mortgage rates near 7.4%, renters who might otherwise buy are staying put.<sup>2</sup></p>
-          </div>
-          <div class="market-row">
-            <h3>Rents are flat, with recovery expected in 2027</h3>
-            <p>Depending on the source, rents moved between a 0.9% decline and a 0.9% gain over the past year.<sup>1, 2, 3</sup> Growth is forecast to strengthen in the second half of 2027.<sup>1</sup> East Portland posted the strongest rent growth of the metro's major submarkets at 1.3%.<sup>3</sup></p>
-          </div>
-          <div class="market-row">
             <h3>Mid-range and older properties are holding occupancy</h3>
-            <p>Vacancy is 6.3% in mid-range (3 Star) properties against 7.8% in luxury (4 and 5 Star) properties,<sup>1</sup> and 5.8% in properties built before 2000 against 8.5% in newer ones.<sup>2</sup> Almost all new construction is aimed at the top of the market: roughly four luxury units are underway for every 3 Star unit.<sup>1</sup></p>
-          </div>
-          <div class="market-row">
-            <h3>The labor market is the main risk</h3>
-            <p>Metro employment is down 1.5% from a year ago, a loss of roughly 18,800 jobs,<sup>2</sup> and the pace of recovery depends on whether hiring stabilizes.</p>
+            <p>Vacancy is 6.3% in mid-range (3 Star) properties against 7.8% in luxury (4 and 5 Star) properties,<sup>1</sup> and 5.8% in properties built before 2000 against 8.5% in newer ones.<sup>2</sup> Two-bedroom units have the lowest vacancy of any unit type at 5.9%, against 7.4% for studios.<sup>4</sup> Almost all new construction is aimed at the top of the market: roughly four luxury units are underway for every 3 Star unit.<sup>1</sup></p>
           </div>
         </div>
         
         <footer class="source-citation">
-          <p>Market data last updated {{ modified | date: "%B %Y", "UTC" }}. Sources: <sup>1</sup> CoStar Multi-Family Market Report and Capital Markets Report, Portland, November 2026. <sup>2</sup> Colliers Portland Multifamily Market Report, Q3 2026. <sup>3</sup> CBRE Figures, Portland Multifamily, Q3 2026. <sup>4</sup> Pathfinder Partners, The Pathfinder Report, October 2026.</p>
+          <p>Market data last updated {{ modified | date: "%B %Y", "UTC" }}. Sources: <sup>1</sup> CoStar Multi-Family Market Report and Capital Markets Report, Portland, November 2026. <sup>2</sup> Colliers Portland Multifamily Market Report, Q3 2026. <sup>3</sup> CBRE Figures, Portland Multifamily, Q3 2026. <sup>4</sup> Multifamily NW Apartment Report, Fall 2026.</p>
         </footer>
       </section>
 
@@ -362,27 +350,6 @@ og_type: website
         
         <div class="faq-accordion">
           <details class="faq-item" name="faq">
-            <summary class="faq-question">What types of properties does Berez Investment Group acquire?</summary>
-            <div class="faq-answer">
-              <p>We focus exclusively on multifamily properties—apartment buildings and townhome communities—in the Portland Metro area. Our sweet spot is B and C class properties with 10 to 60 units, typically garden-style or townhouse construction from the 1980s or newer, or older properties that have been renovated. We target family-oriented unit mixes with predominantly 2 and 3 bedroom layouts, as these generate stable demand from working families seeking affordable housing in suburban Portland markets.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">Why do you focus on B and C class apartments instead of luxury properties?</summary>
-            <div class="faq-answer">
-              <p>B and C class properties offer several advantages in the current Portland market. First, they serve the workforce housing segment, which is holding occupancy better than luxury product: CoStar's November 2026 market report puts vacancy at 6.3% in mid-range (3 Star) properties and 5.6% in 1 and 2 Star properties, against 7.8% in 4 and 5 Star. Working families need affordable, quality housing—that demand doesn't disappear during downturns. Second, these properties typically offer better cash flow and in-place yields compared to luxury apartments, which often sacrifice yield for appreciation potential. Third, very little new construction competes at this price point: CoStar counts roughly four luxury units under construction for every 3 Star unit, and almost no new 1 and 2 Star product. Finally, B and C properties offer more value-add opportunities through modest renovations and improved management, allowing us to increase rents while still maintaining affordability.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">What geographic areas do you invest in?</summary>
-            <div class="faq-answer">
-              <p>Our primary focus is East Portland and the inner-ring suburbs: Gresham, Troutdale, and Fairview. These markets offer strong fundamentals including good schools, transportation access, and employment centers, while maintaining relative affordability compared to central Portland. We also consider opportunities in Clackamas County and Washington County when they meet our acquisition criteria. We avoid central Portland's urban core due to higher acquisition costs, rent control concerns, and weaker cash-on-cash returns. East Portland posted the strongest rent growth of the metro's major submarkets over the past year at 1.3%, according to CBRE's Q3 2026 report, and average rents in Gresham and Far East Portland are the lowest of any submarket CBRE tracks at $1,584 a month, which keeps these communities within reach of working families.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
             <summary class="faq-question">How do you finance property acquisitions?</summary>
             <div class="faq-answer">
               <p>We use a combination of conventional financing and assumable loans when available. For most acquisitions, we secure conventional multifamily loans through local and regional banks that understand the Portland market. These typically require 25-30% down payment and offer 20-25 year amortization. When sellers have existing favorable financing—particularly low fixed-rate loans originated before interest rates rose—we prioritize assuming those loans to maintain advantageous terms. We also evaluate properties with Freddie Mac or Fannie Mae agency debt that can be assumed. Our conservative leverage approach targets maximum 75% loan-to-value, ensuring we maintain sufficient equity cushion and cash flow even if market conditions soften.</p>
@@ -390,30 +357,9 @@ og_type: website
           </details>
           
           <details class="faq-item" name="faq">
-            <summary class="faq-question">What returns do you target on acquisitions?</summary>
-            <div class="faq-answer">
-              <p>We target a 7% going-in cap rate, with cash-on-cash returns in the 7-10% range depending on leverage and value-add potential. That is above the recent market average: Colliers reports an average cap rate of 6.8% on Portland trades between $2 million and $25 million in Q3 2026, and CoStar puts the average cap rate on sales over the past 12 months at 6.4%. We will consider properties below our target where a clear value-add plan closes the gap. Our investment thesis prioritizes stable cash flow and long-term wealth preservation over speculative appreciation. We underwrite conservatively, assuming rent growth no higher than Portland's 10-year average of 2.2% a year (CoStar) and budgeting for realistic vacancy and maintenance costs. Our hold period is typically 7-10 years, though we're prepared to hold longer if market conditions warrant. The combination of cash flow, mortgage paydown, and moderate appreciation has historically generated attractive risk-adjusted returns while maintaining downside protection.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
             <summary class="faq-question">Do you accept outside investors or operate as a fund?</summary>
             <div class="faq-answer">
               <p>Currently, Berez Investment Group operates as a private investment company focused on our own capital deployment. We are not structured as a fund and do not solicit outside investors. Our boutique approach allows us to move quickly on acquisitions, maintain operational flexibility, and take a truly long-term view without external pressure for distributions or exits. If you're interested in discussing potential partnership opportunities on specific deals, we're open to conversations on a case-by-case basis for qualified partners who share our investment philosophy.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">What is your typical renovation and repositioning timeline?</summary>
-            <div class="faq-answer">
-              <p>Our value-add timeline depends on the property's condition and scope of improvements needed. For light renovations—updating unit interiors with new flooring, paint, fixtures, and appliances—we typically complete work as units turn over naturally, spreading improvements over 12-24 months. This approach minimizes vacancy loss while capturing rent increases incrementally. For more extensive repositioning including exterior improvements, amenity upgrades, or common area renovations, we front-load capital investment in the first 6-12 months after acquisition. Major projects like siding replacement, parking lot repaving, or amenity additions happen during favorable weather and are planned to minimize disruption to residents. Our goal is value creation through steady improvement, not aggressive flip strategies that sacrifice quality or resident experience.</p>
-            </div>
-          </details>
-          
-          <details class="faq-item" name="faq">
-            <summary class="faq-question">How do you handle property management?</summary>
-            <div class="faq-answer">
-              <p>We partner with experienced third-party property management companies that specialize in workforce housing in the Portland market. Professional management handles day-to-day operations including tenant screening, rent collection, maintenance coordination, and lease enforcement. However, we maintain active oversight through monthly financial reviews, quarterly property inspections, and approval authority over major decisions including capital expenditures, significant vendor contracts, and strategic initiatives. This hybrid approach combines professional management expertise with hands-on ownership involvement, ensuring properties are well-maintained while operating efficiently.</p>
             </div>
           </details>
           
