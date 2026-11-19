@@ -1111,16 +1111,9 @@
 	color: var(--color-text);
 }
 
-.criteria-note {
-	margin-top: var(--space-lg);
-	padding: var(--space-md);
-	background: #faf5f5; /* Light red tint - specific to note */
-	border-left: 3px solid var(--color-accent);
-	font-size: var(--font-size-sm);
-	color: var(--color-text);
-}
-
 .criteria-cta {
+	padding-top: var(--space-md);
+	border-top: 1px solid var(--color-border);
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
