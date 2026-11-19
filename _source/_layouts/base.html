@@ -27,7 +27,7 @@
     <meta property="og:url" content="{{ page_url }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:locale" content="{{ site.locale | default: 'en_US' }}">
-    <meta property="og:image" content="https://v1.screenshot.11ty.dev/{{ site.baseUrl | url_encode }}/opengraph/" id="og-image-meta">
+    <meta property="og:image" content="{{ site.baseUrl }}/assets/images/og-image.png" id="og-image-meta">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="{{ page_title }}">
@@ -42,7 +42,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ page_title }}">
     <meta name="twitter:description" content="{{ page_description }}">
-    <meta name="twitter:image" content="https://v1.screenshot.11ty.dev/{{ site.baseUrl | url_encode }}/opengraph/" id="twitter-image-meta">
+    <meta name="twitter:image" content="{{ site.baseUrl }}/assets/images/og-image.png" id="twitter-image-meta">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#8b3a3a">
@@ -112,7 +112,7 @@
         "width": "280",
         "height": "32"
       },
-      "image": "https://v1.screenshot.11ty.dev/{{ site.baseUrl | url_encode }}/opengraph/",
+      "image": "{{ site.baseUrl }}/assets/images/og-image.png",
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "Investment Inquiries",
@@ -203,7 +203,7 @@
         "description": "B and C class apartment buildings in Portland Metro and Pacific Northwest",
         "itemOffered": {
           "@type": "RealEstateListing",
-          "description": "20-50 unit apartment communities, garden or townhouse style, 2-3 bedroom units"
+          "description": "20-75 unit apartment communities, garden or townhouse style, 2-3 bedroom units"
         }
       }
     }
@@ -243,7 +243,7 @@
           "name": "Why do you focus on B and C class apartments instead of luxury properties?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "B and C class properties offer several advantages in the current Portland market. They serve the workforce housing segment with consistent demand regardless of economic cycles. These properties typically offer better cash flow and in-place yields compared to luxury apartments. There's less new construction competition at this price point, and B and C properties offer more value-add opportunities through modest renovations and improved management."
+            "text": "B and C class properties offer several advantages in the current Portland market. They serve the workforce housing segment, which is holding occupancy better than luxury product: CoStar's November 2026 market report puts vacancy at 6.3% in mid-range (3 Star) properties and 5.6% in 1 and 2 Star properties, against 7.8% in 4 and 5 Star. These properties typically offer better cash flow and in-place yields compared to luxury apartments. Very little new construction competes at this price point: CoStar counts roughly four luxury units under construction for every 3 Star unit. B and C properties also offer more value-add opportunities through modest renovations and improved management."
           }
         },
         {
@@ -251,7 +251,7 @@
           "name": "What geographic areas do you invest in?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our primary focus is East Portland and the inner-ring suburbs: Gresham, Troutdale, and Fairview. These markets offer strong fundamentals including good schools, transportation access, and employment centers, while maintaining relative affordability compared to central Portland. We also consider opportunities in Clackamas County and Washington County when they meet our acquisition criteria."
+            "text": "Our primary focus is East Portland and the inner-ring suburbs: Gresham, Troutdale, and Fairview. These markets offer strong fundamentals including good schools, transportation access, and employment centers, while maintaining relative affordability compared to central Portland. We also consider opportunities in Clackamas County and Washington County when they meet our acquisition criteria. East Portland posted the strongest rent growth of the metro's major submarkets over the past year at 1.3%, according to CBRE's Q3 2026 report."
           }
         },
         {
@@ -267,7 +267,7 @@
           "name": "What returns do you target on acquisitions?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We target minimum 6% cap rates on acquisition, with cash-on-cash returns in the 7-10% range depending on leverage and value-add potential. Our investment thesis prioritizes stable cash flow and long-term wealth preservation over speculative appreciation. Our hold period is typically 7-10 years."
+            "text": "We target minimum 6% cap rates on acquisition, with cash-on-cash returns in the 7-10% range depending on leverage and value-add potential. That target is in line with the market: Colliers reports an average cap rate of 6.8% on Portland trades between $2 million and $25 million in Q3 2026. Our investment thesis prioritizes stable cash flow and long-term wealth preservation over speculative appreciation. Our hold period is typically 7-10 years."
           }
         },
         {
@@ -299,7 +299,7 @@
           "name": "Are you actively looking to buy more properties right now?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. We are actively seeking acquisition opportunities that meet our criteria. The current market presents compelling opportunities as interest rate increases have slowed transaction volume, creating less competition for well-located, cash-flowing properties. We're particularly interested in properties with assumable low-rate financing or operational inefficiencies that can be improved through better management."
+            "text": "Yes. We are actively seeking acquisition opportunities that meet our criteria. Pricing has reset: CoStar's November 2026 capital markets report puts the market price per unit near $235,000, down from a peak of about $294,000. Capital is returning, with CBRE recording $658.8 million of sales in Q3 2026, the highest quarterly volume since 2022. We buy smaller workforce properties with our own capital, which lets us move quickly. We're particularly interested in properties with assumable low-rate financing or operational inefficiencies that can be improved through better management."
           }
         }
       ]

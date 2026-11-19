@@ -4,7 +4,7 @@ description: Berez Investment Group acquires and repositions B and C class multi
 layout: base.html
 permalink: /
 published: 2024-01-15
-modified: 2026-01-12
+modified: 2026-11-19
 author: Berez Investment Group
 keywords: multifamily investment, apartment acquisitions, Portland real estate, value-add apartments, workforce housing, B class apartments, Pacific Northwest real estate, Gresham apartments, Fairview properties
 og_type: website
@@ -127,7 +127,7 @@ og_type: website
         <h2 class="section-title" id="portland">Why Portland</h2>
         
         <p class="section-text mb-lg">
-          The Portland metro area offers solid fundamentals for multifamily investors. Demand is outpacing new supply, vacancy is coming down, and rent growth is on track to recover. Here's what the numbers look like:
+          The Portland metro area is moving from correction into early recovery. Vacancy is falling, the construction pipeline has shrunk to a fraction of its 2022 peak, and rents are holding steady while the market absorbs the last wave of new supply. Here's what the numbers look like, according to CoStar's November 2026 market report:
         </p>
         
         <div class="stats-row">
@@ -136,29 +136,38 @@ og_type: website
             <span class="stat-label">Vacancy</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value" data-count="5300" data-suffix="+">5,300+</span>
+            <span class="stat-value" data-count="4459">4,459</span>
             <span class="stat-label">Units Absorbed</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value" data-count="1800">1,800</span>
-            <span class="stat-label">Under Construction</span>
+            <span class="stat-value" data-count="2302">2,302</span>
+            <span class="stat-label">Units Delivered</span>
           </div>
           <div class="stat-item">
-            <span class="stat-value" data-count="2" data-suffix="%" data-prefix="~">~2%</span>
-            <span class="stat-label">Rent Growth Forecast</span>
+            <span class="stat-value" data-count="2259">2,259</span>
+            <span class="stat-label">Under Construction</span>
           </div>
         </div>
         
         <div class="portland-prose">
-          <p><strong>Supply is drying up.</strong> Construction has dropped from 13,000 units in 2022 to under 2,000 today. Portland is heading into its slowest delivery year since 2011. Less competition means better occupancy for existing properties.</p>
+          <p><strong>Supply is drying up.</strong> CoStar counts about 2,300 units under construction, down from a peak of 12,902 in late 2022 and equal to less than 1% of existing inventory. Construction starts have stayed below 1,000 units a quarter since mid-2023, and CoStar expects 2026–27 to be the lightest two-year delivery period since 2012–13 if the slowdown holds. Colliers counts a larger pipeline of 3,099 units but reaches the same conclusion, with deliveries expected to stay below 2,000 units a year through 2027.</p>
           
-          <p><strong>Demand stays strong.</strong> Over 5,300 units were absorbed in the last 12 months — well above the 4,000 delivered. Renters are moving to affordable East Portland submarkets like Gresham and Troutdale for value and space.</p>
+          <p><strong>Demand is outpacing new supply.</strong> CoStar reports 4,459 units absorbed over the past 12 months against 2,302 delivered, with vacancy down a full percentage point from a year ago. CBRE saw the same pattern in the third quarter: 1,320 units absorbed against 1,097 delivered, with occupancy holding above 95% throughout 2026. East Portland absorbed 857 units over the past 12 months, the second-highest total of any submarket CBRE tracks.</p>
           
-          <p><strong>Rents are recovering.</strong> After a soft 2023, rent growth is turning positive. The forecast calls for around 2% growth by the end of 2026. Mid-range properties (3 Star) are outperforming luxury in both occupancy and stability.</p>
+          <p><strong>Renting costs far less than owning.</strong> CBRE puts the average monthly cost of homeownership in Portland at $3,634, against an average apartment rent of $1,764. With the national 30-year mortgage rate near 7.4%, Colliers notes that renters who might otherwise buy are staying put.</p>
+          
+          <p><strong>Rents are flat, with recovery expected in 2027.</strong> The three reports put the past year's rent change between a 0.9% decline (CBRE) and a 0.9% gain (Colliers), with CoStar at 0.5%. CoStar forecasts rent growth strengthening in the second half of 2027. East Portland posted the strongest rent growth of the metro's major submarkets at 1.3%, according to CBRE.</p>
+          
+          <p><strong>Mid-range and older properties are holding occupancy.</strong> CoStar puts vacancy at 6.3% in mid-range (3 Star) properties against 7.8% in luxury (4 and 5 Star) properties. Colliers reports 5.8% vacancy in properties built before 2000 against 8.5% in newer ones. Almost all new construction is aimed at the top of the market: CoStar counts roughly four luxury units underway for every 3 Star unit.</p>
+          
+          <p><strong>The labor market is the main risk.</strong> Metro employment is down 1.5% from a year ago, a loss of roughly 18,800 jobs, according to Colliers. Both Colliers and CoStar tie the pace of recovery to whether hiring stabilizes.</p>
         </div>
         
         <footer class="source-citation">
-          <cite>Source: CoStar Market Report, Q3 2025</cite>
+          <cite>Market data last updated {{ modified | date: "%B %Y", "UTC" }}</cite>
+          <cite>Sources: CoStar Multi-Family Market Report and Multi-Family Capital Markets Report, Portland, November 19, 2026</cite>
+          <cite>Colliers Portland Multifamily Market Report, Q3 2026</cite>
+          <cite>CBRE Figures, Portland Multifamily, Q3 2026</cite>
         </footer>
       </section>
 
@@ -214,8 +223,12 @@ og_type: website
           </div>
         </div>
         
+        <p class="section-text mt-lg">
+          <strong>What's trading.</strong> Colliers recorded 23 Portland Metro sales between $2 million and $25 million in Q3 2026, totaling $158.5 million, at an average of $169,321 per unit and a 6.8% cap rate. If you own or represent a property in this range, we'd like to see it.
+        </p>
+
         <p class="criteria-note">
-          We focus on workforce housing in growing suburban markets with limited new supply.
+          We focus on workforce housing in East Portland and the surrounding suburbs, a segment where very little new product is being built.
         </p>
       </section>
 
@@ -227,7 +240,7 @@ og_type: website
         <div class="portfolio-grid">
           <article class="property-card">
             <div class="property-image">
-              {% image "glisan-townhomes.jpg", "Glisan Townhomes exterior", null, "(min-width: 640px) 50vw, 100vw" %}
+              <img src="/assets/images/glisan-townhomes.jpg" alt="Glisan Townhomes exterior" sizes="(min-width: 768px) 460px, 100vw">
               <h3 class="property-image-title">Glisan Townhomes</h3>
             </div>
             <div class="property-info">
@@ -239,7 +252,7 @@ og_type: website
 
           <article class="property-card">
             <div class="property-image">
-              {% image "lincoln-court-townhomes.jpg", "Lincoln Court Townhomes exterior", null, "(min-width: 640px) 50vw, 100vw" %}
+              <img src="/assets/images/lincoln-court-townhomes.jpg" alt="Lincoln Court Townhomes exterior" sizes="(min-width: 768px) 460px, 100vw">
               <h3 class="property-image-title">Lincoln Court Townhomes</h3>
             </div>
             <div class="property-info">
@@ -251,7 +264,7 @@ og_type: website
 
           <article class="property-card">
             <div class="property-image">
-              {% image "roberts-court-townhomes.webp", "Roberts Court Townhomes street view", null, "(min-width: 640px) 50vw, 100vw" %}
+              <img src="/assets/images/roberts-court-townhomes.webp" alt="Roberts Court Townhomes street view" sizes="(min-width: 768px) 460px, 100vw">
               <h3 class="property-image-title">Roberts Court Townhomes</h3>
             </div>
             <div class="property-info">
@@ -263,7 +276,7 @@ og_type: website
 
           <article class="property-card">
             <div class="property-image">
-              {% image "459-rock-apartments.jpg", "459 Rock Apartments building exterior", null, "(min-width: 640px) 50vw, 100vw" %}
+              <img src="/assets/images/459-rock-apartments.jpg" alt="459 Rock Apartments building exterior" sizes="(min-width: 768px) 460px, 100vw">
               <h3 class="property-image-title">459 Rock Apartments</h3>
             </div>
             <div class="property-info">
@@ -343,14 +356,14 @@ og_type: website
           <details class="faq-item">
             <summary class="faq-question">Why do you focus on B and C class apartments instead of luxury properties?</summary>
             <div class="faq-answer">
-              <p>B and C class properties offer several advantages in the current Portland market. First, they serve the workforce housing segment, which has consistent demand regardless of economic cycles. Working families need affordable, quality housing—that demand doesn't disappear during downturns. Second, these properties typically offer better cash flow and in-place yields compared to luxury apartments, which often sacrifice yield for appreciation potential. Third, there's less new construction competition at this price point, as developers focus on higher-end projects. Finally, B and C properties offer more value-add opportunities through modest renovations and improved management, allowing us to increase rents while still maintaining affordability.</p>
+              <p>B and C class properties offer several advantages in the current Portland market. First, they serve the workforce housing segment, which is holding occupancy better than luxury product: CoStar's November 2026 market report puts vacancy at 6.3% in mid-range (3 Star) properties and 5.6% in 1 and 2 Star properties, against 7.8% in 4 and 5 Star. Working families need affordable, quality housing—that demand doesn't disappear during downturns. Second, these properties typically offer better cash flow and in-place yields compared to luxury apartments, which often sacrifice yield for appreciation potential. Third, very little new construction competes at this price point: CoStar counts roughly four luxury units under construction for every 3 Star unit, and almost no new 1 and 2 Star product. Finally, B and C properties offer more value-add opportunities through modest renovations and improved management, allowing us to increase rents while still maintaining affordability.</p>
             </div>
           </details>
           
           <details class="faq-item">
             <summary class="faq-question">What geographic areas do you invest in?</summary>
             <div class="faq-answer">
-              <p>Our primary focus is East Portland and the inner-ring suburbs: Gresham, Troutdale, and Fairview. These markets offer strong fundamentals including good schools, transportation access, and employment centers, while maintaining relative affordability compared to central Portland. We also consider opportunities in Clackamas County and Washington County when they meet our acquisition criteria. We avoid central Portland's urban core due to higher acquisition costs, rent control concerns, and weaker cash-on-cash returns. Our target markets have limited new construction pipelines, stable demographics, and room for rent growth as Portland's affordability challenges push residents eastward.</p>
+              <p>Our primary focus is East Portland and the inner-ring suburbs: Gresham, Troutdale, and Fairview. These markets offer strong fundamentals including good schools, transportation access, and employment centers, while maintaining relative affordability compared to central Portland. We also consider opportunities in Clackamas County and Washington County when they meet our acquisition criteria. We avoid central Portland's urban core due to higher acquisition costs, rent control concerns, and weaker cash-on-cash returns. East Portland posted the strongest rent growth of the metro's major submarkets over the past year at 1.3%, according to CBRE's Q3 2026 report, and average rents in Gresham and Far East Portland are the lowest of any submarket CBRE tracks at $1,584 a month, which keeps these communities within reach of working families.</p>
             </div>
           </details>
           
@@ -364,7 +377,7 @@ og_type: website
           <details class="faq-item">
             <summary class="faq-question">What returns do you target on acquisitions?</summary>
             <div class="faq-answer">
-              <p>We target minimum 6% cap rates on acquisition, with cash-on-cash returns in the 7-10% range depending on leverage and value-add potential. Our investment thesis prioritizes stable cash flow and long-term wealth preservation over speculative appreciation. We underwrite conservatively, assuming modest 2-3% annual rent growth and budgeting for realistic vacancy and maintenance costs. Our hold period is typically 7-10 years, though we're prepared to hold longer if market conditions warrant. The combination of cash flow, mortgage paydown, and moderate appreciation has historically generated attractive risk-adjusted returns while maintaining downside protection.</p>
+              <p>We target minimum 6% cap rates on acquisition, with cash-on-cash returns in the 7-10% range depending on leverage and value-add potential. That target is in line with the market: Colliers reports an average cap rate of 6.8% on Portland trades between $2 million and $25 million in Q3 2026, and CoStar puts the average cap rate on sales over the past 12 months at 6.4%. Our investment thesis prioritizes stable cash flow and long-term wealth preservation over speculative appreciation. We underwrite conservatively, assuming rent growth no higher than Portland's 10-year average of 2.2% a year (CoStar) and budgeting for realistic vacancy and maintenance costs. Our hold period is typically 7-10 years, though we're prepared to hold longer if market conditions warrant. The combination of cash flow, mortgage paydown, and moderate appreciation has historically generated attractive risk-adjusted returns while maintaining downside protection.</p>
             </div>
           </details>
           
@@ -392,7 +405,7 @@ og_type: website
           <details class="faq-item">
             <summary class="faq-question">Are you actively looking to buy more properties right now?</summary>
             <div class="faq-answer">
-              <p>Yes. We are actively seeking acquisition opportunities that meet our criteria. The current market presents compelling opportunities as interest rate increases have slowed transaction volume, creating less competition for well-located, cash-flowing properties. We're particularly interested in properties with assumable low-rate financing, deferred maintenance that we can address through our renovation expertise, or operational inefficiencies that can be improved through better management. If you have a property that fits our acquisition criteria—or know of one coming to market—we'd welcome the opportunity to discuss a potential transaction.</p>
+              <p>Yes. We are actively seeking acquisition opportunities that meet our criteria. Pricing has reset: CoStar's November 2026 capital markets report puts the market price per unit near $235,000, down from a peak of about $294,000, and shows sales over the past 12 months closing an average of 11.5% below asking. Capital is returning, with CBRE recording $658.8 million of sales in Q3 2026, the highest quarterly volume since 2022, and CoStar notes that institutional buyers are targeting newer, larger communities. We buy smaller workforce properties with our own capital, which lets us move quickly and close with certainty. We're particularly interested in properties with assumable low-rate financing, deferred maintenance that we can address through our renovation expertise, or operational inefficiencies that can be improved through better management. If you have a property that fits our acquisition criteria—or know of one coming to market—we'd welcome the opportunity to discuss a potential transaction.</p>
             </div>
           </details>
         </div>

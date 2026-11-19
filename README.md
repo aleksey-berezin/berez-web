@@ -45,13 +45,12 @@ Pages project build settings:
 ```
 _source/              Site source
   _data/              Eleventy global data (site.json)
-  _includes/          Liquid partials
   _layouts/           Page layouts
-  _utilities/         Build-time helpers (image, CSS, JS, favicon generation)
+  _utilities/         Build-time helpers (CSS inlining, JS bundling, favicon generation)
   assets/
-    css/              main.css + component/utility partials
+    css/              main.css + component/utility partials (inlined into the page head)
     fonts/            Web fonts (passthrough copied)
-    images/           Source images (processed by eleventy-img)
+    images/           Source images (photos are processed by eleventy-img; icons and logo are copied as-is)
     js/               app.js + _elements/ (progressive-enhancement modules)
   index.html          Home page
   404.html            Error page
@@ -63,6 +62,24 @@ docs/                 Internal project notes (excluded from build via .eleventyi
 eleventy.config.js    Eleventy configuration
 package.json
 .nvmrc                Node version pin (24)
+```
+
+## Images
+
+Write a plain `<img>` with an absolute path to the source file and a `sizes` attribute:
+
+```html
+<img src="/assets/images/photo.jpg" alt="Description" sizes="(min-width: 768px) 460px, 100vw">
+```
+
+At build time the [eleventy-img HTML transform](https://www.11ty.dev/docs/plugins/image/) turns it into a `<picture>` with AVIF, WebP and JPEG sources at 400, 800, 1200 and 1600 px, written to `_site/img/` with content-hashed filenames. Images are lazy-loaded by default. Add `eleventy:ignore` to an `<img>` to leave it untouched.
+
+## Social preview image
+
+`_source/assets/images/og-image.png` (1200×630) is the image shown when the site is shared. It is a static file rendered from `og-image.svg` in the same folder; re-render it after editing the SVG:
+
+```bash
+node -e "import('sharp').then(({default:s})=>s('_source/assets/images/og-image.svg').png().toFile('_source/assets/images/og-image.png'))"
 ```
 
 ## Redirects
