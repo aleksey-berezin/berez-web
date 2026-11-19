@@ -3,13 +3,15 @@
 import faq from './faq.json' with { type: 'json' };
 import site from './site.json' with { type: 'json' };
 
+const id = (name) => `${site.url}/#${name}`;
+
 const organization = {
-	'@context': 'https://schema.org',
 	'@type': 'Organization',
+	'@id': id('organization'),
 	name: site.name,
 	alternateName: 'Berez',
-	url: site.url,
-	logo: `${site.url}/logo.svg`,
+	url: `${site.url}/`,
+	logo: `${site.url}/apple-touch-icon.png`,
 	image: `${site.url}/og-image.png`,
 	description: site.description,
 	areaServed: ['Portland', 'Gresham', 'Troutdale', 'Fairview'].map((name) => ({
@@ -28,18 +30,25 @@ const organization = {
 };
 
 const website = {
-	'@context': 'https://schema.org',
 	'@type': 'WebSite',
+	'@id': id('website'),
 	name: site.name,
-	url: site.url,
+	url: `${site.url}/`,
 	description: site.description,
 	inLanguage: 'en-US',
-	dateModified: site.updated,
+	publisher: { '@id': id('organization') },
 };
 
-const faqPage = {
-	'@context': 'https://schema.org',
+// The home page itself. FAQPage is a kind of WebPage.
+const page = {
 	'@type': 'FAQPage',
+	'@id': id('page'),
+	url: `${site.url}/`,
+	name: site.name,
+	inLanguage: 'en-US',
+	dateModified: site.updated,
+	isPartOf: { '@id': id('website') },
+	about: { '@id': id('organization') },
 	mainEntity: faq.map(({ question, answer, detail }) => ({
 		'@type': 'Question',
 		name: question,
@@ -50,4 +59,7 @@ const faqPage = {
 	})),
 };
 
-export default [organization, website, faqPage];
+export default {
+	'@context': 'https://schema.org',
+	'@graph': [organization, website, page],
+};

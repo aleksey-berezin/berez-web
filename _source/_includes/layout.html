@@ -24,6 +24,8 @@
     <meta property="og:image" content="{{ share_image }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{{ site.name }}: multifamily acquisitions in the Pacific Northwest">
+    <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
 
     <meta name="theme-color" content="#8b3a3a">
@@ -38,9 +40,7 @@
     <script src="/site.js" type="module"></script>
 
     {%- if page.url == "/" %}
-    {%- for item in schema %}
-    <script type="application/ld+json">{{ item | json }}</script>
-    {%- endfor %}
+    <script type="application/ld+json">{{ schema | json }}</script>
     {%- endif %}
   </head>
 

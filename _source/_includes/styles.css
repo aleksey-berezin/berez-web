@@ -157,6 +157,7 @@ sup {
 .stats dt,
 .figures dt,
 .specs h3,
+.partners span,
 .property-units {
 	font-size: var(--text-xs);
 	font-weight: 600;
@@ -466,7 +467,7 @@ html:has(.menu:popover-open) {
 @media (width >= 48rem) {
 	.layout {
 		display: grid;
-		grid-template-columns: 11rem minmax(0, 1fr);
+		grid-template-columns: 12rem minmax(0, 1fr);
 		gap: clamp(var(--space-lg), 4vw, var(--space-xl));
 		align-items: start;
 		padding-block: var(--section);
@@ -589,6 +590,50 @@ h3.ruled + * {
 
 .ruled-rows dd {
 	color: var(--muted);
+}
+
+/* Property managers: two one-colour logos, each linking to the firm */
+.partners {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--space-sm);
+}
+
+.partners a {
+	display: grid;
+	grid-template-rows: 3.5rem auto; /* logo row, then caption */
+	justify-items: center;
+	gap: var(--space-sm);
+	padding: var(--space-md) var(--space-sm);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+	color: var(--muted);
+	text-align: center;
+	text-decoration: none;
+	transition: border-color 0.2s;
+}
+
+.partners img {
+	align-self: center;
+	width: auto;
+	max-width: min(100%, 11rem);
+	max-height: 3.5rem;
+	opacity: 0.8;
+	transition: opacity 0.2s;
+}
+
+.partners a:hover {
+	border-color: var(--red);
+}
+
+.partners a:hover img {
+	opacity: 1;
+}
+
+@media (width >= 40rem) {
+	.partners {
+		gap: var(--space-md);
+	}
 }
 
 /* --------------------------------------------------------------------------

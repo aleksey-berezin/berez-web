@@ -33,7 +33,8 @@ _source/
     schema.js           Structured data for search engines, built from the files above
   photos/               Property photos (resized automatically at build time)
   public/               Copied to the site root untouched:
-                        site.js, fonts, favicons, og-image, robots.txt, _redirects
+                        site.js, fonts, favicons, og-image, partner logos,
+                        robots.txt, _redirects, _headers (caching and security)
 eleventy.config.js      20 lines: image plugin and the public/ copy
 ```
 
